@@ -2,8 +2,8 @@ k,n=map(int,input().split())
 board=[]
 
 for _ in range(k):
-    a,b,c,d=map(int,input().split())
-    board.append((a,b,c,d))
+    rank=list(map(int,input().split()))
+    board.append(rank)
 
 count=0
 for i in range(n):

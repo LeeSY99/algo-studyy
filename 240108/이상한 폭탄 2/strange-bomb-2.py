@@ -21,7 +21,7 @@ for _ in range(n):
 ans=-1
 for i in range(n):
     for j in range(i+1,n):
-        if i-j>k:
+        if j-i>k:
             break
         
         if bombs[i] != bombs[j]:

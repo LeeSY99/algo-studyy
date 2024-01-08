@@ -14,4 +14,7 @@ for i in range(n):
         if in_range(j) and i!=j:
             if bombs[i]==bombs[j]:
                 boom.append(bombs[i])
-print(max(boom))
+if len(boom)==0:
+    print(-1)
+else:
+    print(max(boom))

@@ -1,39 +1,22 @@
 t,a,b=map(int,input().split())
 
 line=[0]*1000
-for _ in range(t):
-    alphabet,number=input().split()
-    line[int(number)]=alphabet
+points=[tuple(input().split()) for _ in range(t)]
 
-def in_range(n):
-    return 0<=n and n<1000
-
+import sys
 special_count=0
 for i in range(a,b+1):
-    d1,d2=-1,-1
-    d1_ok,d2_ok=False,False
-    for j in range(1000):
-        if in_range(i-j) and d1_ok==False:
-            if line[i-j]=='S':
-                d1=j
-                d1_ok=True
-        if in_range(i+j) and d1_ok==False:
-            if line[i+j]=='S':
-                d1=j
-                d1_ok=True
+    d1,d2=sys.maxsize,sys.maxsize
 
-        if in_range(i-j) and d2_ok==False:
-            if line[i-j]=='N':
-                d2=j
-                d2_ok=True
-        if in_range(i+j) and d2_ok==False:
-            if line[i+j]=='N':
-                d2=j
-                d2_ok=True
+    for a,x in points:
+        x=int(x)
 
-        if d1_ok and d2_ok:
-            if d1<=d2:
-                special_count+=1
-            break
+        if a=='S':
+            d1=min(d1,abs(x-i))
+        if a=="N":
+            d2=min(d2,abs(x-i))
+    if d1<=d2:
+        special_count+=1
+    
 
 print(special_count)

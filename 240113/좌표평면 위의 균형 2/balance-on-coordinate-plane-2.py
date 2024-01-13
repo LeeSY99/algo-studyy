@@ -4,8 +4,8 @@ points=[list(map(int,input().split())) for _ in range(n)]
 
 import sys
 ans=sys.maxsize
-for i in range(1,101): #i->x축
-    for j in range(1,101): #j->y축
+for i in range(2,101,2): #i->x축
+    for j in range(2,101,2): #j->y축
         one,two,three,four=0,0,0,0
         for x,y in points:
             if x>j and y>i:

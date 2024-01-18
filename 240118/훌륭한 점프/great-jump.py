@@ -15,7 +15,7 @@ def available(max_val):
 
 import sys
 ans=sys.maxsize
-for n in range(max(arr[1],arr[-1]),101):
+for n in range(max(arr[0],arr[-1]),101):
     if available(n):
         ans=min(ans,n)
 print(ans)

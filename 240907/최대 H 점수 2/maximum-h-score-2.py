@@ -2,7 +2,7 @@ n,l = map(int,input().split())
 nums = list(map(int,input().split()))
 #나의 코드
 
-# for max_num in range(100,-1,-1):
+# for max_num in range(100,-1,-1): #예상 H값 완전 탐색
 #     plus_count= #1을 더한 횟수
 #     for i in range(n):    #nums배열을 순회하면서 예상H값보다 1작으면 1을 더함
 #         if nums[i]==max_num-1:

@@ -1,4 +1,4 @@
-n=int(input())
+# n=int(input())
 
 # points=[list(map(int, input().split())) for _ in range(n)]
 #내가 푼 완전탐색으로

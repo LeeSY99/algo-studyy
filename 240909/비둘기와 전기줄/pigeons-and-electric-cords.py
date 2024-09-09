@@ -1,8 +1,8 @@
 n=int(input())
 
-bird=[0]*(n+1)
-count=[0]*(n+1)
-trace=[False]*(n+1)
+bird=[0]*(11)
+count=[0]*(11)
+trace=[False]*(11)
 
 for _ in range(n):
     bird_num, loc = map(int,input().split())

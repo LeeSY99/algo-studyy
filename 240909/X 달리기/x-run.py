@@ -9,6 +9,10 @@ while(1):
         now_speed=speed[i-1]+1
         speed.append(now_speed)
         moved.append((moved[i-1]+now_speed))
+    elif  speed[i-1] <(x//2) - moved[i-1]< speed[i-1]+1:
+        now_speed=speed[i-1]
+        speed.append(now_speed)
+        moved.append((moved[i-1]+now_speed))
     else:
         now_speed=max(1,speed[i-1]-1)
         speed.append(now_speed)

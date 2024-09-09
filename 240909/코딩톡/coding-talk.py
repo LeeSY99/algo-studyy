@@ -24,3 +24,6 @@ for p in people:
 ans.sort()
 for a in ans:
     print(a, end=' ')
+
+
+#해설은 사람을 탐색하면서 읽었는지 확인했음

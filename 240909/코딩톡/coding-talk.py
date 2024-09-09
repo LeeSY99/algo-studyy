@@ -7,12 +7,13 @@ for i in range(n):
     people.append(chr(ord(start)+i))
 
 read=[]
-for i in range(p-1,m):
-    if int(info[i][1])==0:
-        exit()
-    if i>0 and info[i-1][1]==info[i][1]:
-        read.append(info[i-1][0])
-    read.append(info[i][0])
+not_read_msg=int(info[p-1][1])
+for i in range(m):
+    if i==p-1:
+        if int(info[i][1])==0:
+            exit()
+    if int(info[i][1])==not_read_msg or i>=p-1:
+        read.append(info[i][0])
 
 ans=[]
 for p in people:

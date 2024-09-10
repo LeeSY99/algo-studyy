@@ -1,9 +1,13 @@
-A,B,x,y = map(int,input().split())
+a,b,x,y = map(int,input().split())
 
-c1=abs(B-A)
-if x>y:
-    c2=abs(y-A)+abs(B-x)
-    print(min(c1,c2))
-else:
-    c3=abs(x-A)+abs(B-y)
-    print(min(c1,c3))
+import sys
+min_dist=sys.maxsize
+
+#1) a->b
+min_dist=min(min_dist, abs(b-a))
+#2) a->x->y->b
+min_dist=min(min_dist, abs(x-a) + abs(b-y))
+#3) a->y->x->b
+min_dist=min(min_dist, abs(y-a) + abs(b-x))
+
+print(min_dist)

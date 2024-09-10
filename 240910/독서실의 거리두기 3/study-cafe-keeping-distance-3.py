@@ -14,7 +14,7 @@ for i in range(n):
             break
 
 desk=list(in_data)
-desk[(end-start)//2] = '1'
+desk[(end+start)//2] = '1'
 
 import sys
 min_interval=sys.maxsize

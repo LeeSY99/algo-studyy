@@ -5,6 +5,7 @@ import sys
 min_idx=0
 min_num=min(nums)
 min_interval=sys.maxsize
+min_count=0
 
 for i in range(n):
     if nums[i] == min_num:

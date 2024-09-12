@@ -14,7 +14,7 @@ for i in range(n):
         min_interval=nums[i]-min_num
         min_count=1
         min_idx=i
-    elif nums[i]-min_num<min_interval:
+    elif nums[i]-min_num==min_interval:
         min_count+=1
 
 if min_count==1:

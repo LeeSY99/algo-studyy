@@ -15,7 +15,7 @@ def get_status(sa,sb,sc):
 score_a,score_b,score_c=0,0,0
 count=0
 
-previous_honor='ABC'
+previous_honor='012'
 for i in range(n):
     p, s=input().split()
     if p=="A":
@@ -26,6 +26,7 @@ for i in range(n):
         score_c += int(s)
     
     now_honor = get_status(score_a,score_b,score_c)
+    # print(now_honor)
     if previous_honor!=now_honor:
         count+=1
         previous_honor=now_honor

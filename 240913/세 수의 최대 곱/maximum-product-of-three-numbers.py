@@ -1,6 +1,7 @@
 n=int(input())
 nums=list(map(int,input().split()))
 nums.sort()
+# print(nums)
 
 plus_start=0
 zero_start=-1
@@ -8,8 +9,12 @@ zero_start=-1
 for i in range(n):
     if nums[i]>0:
         plus_start=i
+        break
+for i in range(n):
     if nums[i]==0:
         zero_start=i
+        break
+# print(plus_start,zero_start)
 
 #0포함
 ans=0

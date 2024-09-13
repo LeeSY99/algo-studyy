@@ -3,40 +3,31 @@ nums=list(map(int,input().split()))
 nums.sort()
 # print(nums)
 
-plus_start=0
-zero_start=-1
+plus_count=0
+zero_count=0
+minus_count=0
 
-for i in range(n):
-    if nums[i]>0:
-        plus_start=i
-        break
-for i in range(n):
-    if nums[i]==0:
-        zero_start=i
-        break
-# print(plus_start,zero_start)
+for num in nums:
+    if num<0:
+        minus_count+=1
+    elif num ==0:
+        zero_count+=1
+    else:
+        plus_count+=1
 
-#0포함
-ans=0
+import sys
+ans=-sys.maxsize
+#양수 없음
+if plus_count==0 and zero_count==0:
+    ans=nums[n-1]*nums[n-2]*nums[n-3]
+elif plus_count==0 and zero_count!=0:
+    ans=0
 
-#양수3
-for i in range(plus_start,n):
-    for j in range(i+1,n):
-        for k in range(j+1):
-            ans=max(ans,nums[i]*nums[j]*nums[k])
-
-
-#양수1, 음수2
-
-if zero_start==-1:
-    for i in range(0,plus_start):
-        for j in range(i+1,plus_start):
-            for k in range(plus_start,n):
-                ans=max(ans,nums[i]*nums[j]*nums[k])
-else:
-    for i in range(0,zero_start):
-            for j in range(i+1,zero_start):
-                for k in range(plus_start,n):
-                    ans=max(ans,nums[i]*nums[j]*nums[k])
+#양수 3개 이상
+if plus_count>=3:
+    ans=max(ans,nums[n-1]*nums[n-2]*nums[n-3])
+    ans=max(ans,nums[0]*nums[1]*nums[n-1])
+elif 1<=plus_count<=2:
+    ans=nums[0]*nums[i]*nums[n-1]
 
 print(ans)

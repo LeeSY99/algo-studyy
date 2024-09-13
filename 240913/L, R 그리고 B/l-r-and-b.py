@@ -12,7 +12,7 @@ for i in range(10):
             lr=i
             lc=j
 
-if br==rr==lr or bc==rc==lc:
+if (br==rr==lr or bc==rc==lc) and (br<rr<lr or bc<rc<lc or lr<rr<br or lc<rc<bc):
     print(abs(lr-br)+abs(lc-bc)+1)
 else:
     print(abs(lr-br)+abs(lc-bc)-1)

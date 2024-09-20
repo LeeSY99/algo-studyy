@@ -8,6 +8,7 @@ for i in range(n-1):
         if nums[j]>nums[j+1]:
             ok=False
             ans+=1
+            break
     if ok:
         break
 

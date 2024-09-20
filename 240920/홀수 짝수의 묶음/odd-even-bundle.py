@@ -11,10 +11,18 @@ for num in nums:
 count=0
 ans=0
 
-ans+=even*2
-odd-=even
+if odd>=even:
+    ans+=even*2
+    odd-=even
+    even=0
+else:
+    ans+=odd*2
+    even-=odd
+    odd=0
 
-if odd%3==0:
+if odd==0 and even>=1:
+    ans+=1
+elif odd%3==0:
     ans+=odd//3*2
 elif odd%3==1:
     ans+=odd//3*2-1

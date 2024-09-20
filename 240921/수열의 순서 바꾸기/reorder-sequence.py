@@ -7,4 +7,7 @@ for i in range(n):
         max_num=nums[i]
         max_index=i
 
-print(max_index+1)
+if max_index==n-1:
+    print(0)
+else:  
+    print(max_index+1)

@@ -20,4 +20,8 @@ for i in range(n):
         max_y=max(max_y,y[j])
     min_len=min(min_len,max_y-min_x)
         
-print(min_len)
+print(min_len)       
+
+#완전 탐색 O(N^2)
+
+#x가 가장 작은곳 이거나 y가 가장 큰 곳이 가능성 있음 그 2개를 비교하면 O(N)

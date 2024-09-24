@@ -74,6 +74,7 @@ for i in range(n):
     my_list.push_back(in_str[i])
 
 now_node=my_list.end()
+# print(now_node.data)
 for _ in range(m):
     direction=input().split()
     if direction[0]=='L':
@@ -84,7 +85,7 @@ for _ in range(m):
             now_node=now_node.next
     elif direction[0]=='D':
         if now_node!=my_list.end():
-            my_list.erase(now_node)
+            now_node=my_list.erase(now_node)
     elif direction[0]=='P':
         my_list.insert(now_node,direction[1])
         

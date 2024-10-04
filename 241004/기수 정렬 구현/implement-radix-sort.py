@@ -15,8 +15,9 @@ def radix_sort(arr):
         for i in range(10):
             for j in range(len(arr_new[i])):
                 store_arr.append(arr_new[i][j])
+        arr=store_arr[:]
         exp*=10
-    return store_arr
+    return arr
 
 s_nums=radix_sort(nums)
 

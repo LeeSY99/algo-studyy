@@ -16,11 +16,12 @@ def diamond(i,j,k): #마름모 탐색
 
 
 ans=0
-for k in range(n//2+1):
+for k in range(n):
     for i in range(n):
         for j in range(n): ##중심점 
             gold=diamond(i,j,k)
-            ans = max(ans,gold)
+            if gold * m >= k**2 + (k+1)**2:
+                ans = max(ans,gold)
 
 print(ans)
         

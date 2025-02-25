@@ -16,7 +16,7 @@ def diamond(i,j,k): #마름모 탐색
 
 
 ans=0
-for k in range(n):
+for k in range(n+1):
     for i in range(n):
         for j in range(n): ##중심점 
             gold=diamond(i,j,k)

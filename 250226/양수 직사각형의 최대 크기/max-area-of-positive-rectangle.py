@@ -6,7 +6,7 @@ grid = [list(map(int, input().split())) for _ in range(n)]
 def search(i,j,k,l):
     for r in range(i,k+1):
         for c in range(j,l+1):
-            if grid[r][c]<0:
+            if grid[r][c]<=0:
                 return False
     return True
 

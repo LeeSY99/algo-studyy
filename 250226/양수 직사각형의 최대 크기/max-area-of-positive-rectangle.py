@@ -11,7 +11,7 @@ def search(i,j,k,l):
     return True
 
 
-ans=0
+ans=-1
 for i in range(n): #(i,j), (k,l)
     for j in range(m):
         for k in range(i,n):

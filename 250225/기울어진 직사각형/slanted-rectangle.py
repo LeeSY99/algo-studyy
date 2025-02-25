@@ -21,8 +21,8 @@ for i in range(n):
                             else:
                                 is_rec=False
                                 break
-                    if is_rec:
-                        ans=max(ans,num)
+                if is_rec:
+                    ans=max(ans,num)
                 
         
             

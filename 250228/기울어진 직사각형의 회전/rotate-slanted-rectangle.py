@@ -32,6 +32,7 @@ if dir:#시계방향
         nowx, nowy = nextx, nexty
 
     #4번구간:
+    x,y = dx[3],dy[3]
     for i in range(m4-1):
         nextx,nexty = nowx+x, nowy+y
         grid[nowx][nowy] = grid[nextx][nexty]

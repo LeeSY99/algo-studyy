@@ -34,7 +34,7 @@ def move_right(grid):
 def move_up(grid):
     for j in range(4):
         col = [grid[i][j] for i in range(4)]
-        col = compress(row)
+        col = compress(col)
         col = play(col)
         col = compress(col)
         for i in range(4):
@@ -44,7 +44,7 @@ def move_up(grid):
 def move_down(grid):
     for j in range(4):
         col = [grid[i][j] for i in range(4)][::-1]
-        col = compress(row)
+        col = compress(col)
         col = play(col)
         col = compress(col)
         col = col[::-1]

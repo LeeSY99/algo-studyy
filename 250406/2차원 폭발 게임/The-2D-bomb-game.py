@@ -21,6 +21,7 @@ def turn(arr):
     return new_arr
 
 def boom():
+    changed = False
     for j in range(n):
         now = numbers_2d[0][j]
         start = 0
@@ -29,21 +30,31 @@ def boom():
             if numbers_2d[i][j] == now:
                 end = i
             else:
-                if end-start+1 >= m:
+                if end-start+1 >= m and now != 0:
                     for k in range(start,end+1):
                         numbers_2d[k][j] = 0
+                    changed = True
                 start = i
                 end = i
                 now = numbers_2d[i][j]
         if end - start + 1 >= m and now != 0:
             for k in range(start, end + 1):
                 numbers_2d[k][j] = 0
+            changed=True
+    return changed
 
 for _ in range(k):
-    boom()            
-    numbers_2d=down(numbers_2d)
+    while 1:
+        changed = boom()            
+        numbers_2d=down(numbers_2d)
+        if not changed:
+            break
     numbers_2d=turn(numbers_2d)
-boom()
+while 1:
+    changed = boom()            
+    numbers_2d=down(numbers_2d)
+    if not changed:
+        break
 
 
 # for a in numbers_2d:

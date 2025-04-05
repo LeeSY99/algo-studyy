@@ -35,12 +35,9 @@ def boom():
                 start = i
                 end = i
                 now = numbers_2d[i][j]
-        if end-start+1 >= m:
-            for k in range(start,end+1):
+        if end - start + 1 >= m and now != 0:
+            for k in range(start, end + 1):
                 numbers_2d[k][j] = 0
-            start = i
-            end = i    
-            now = numbers_2d[i][j]
 
 for _ in range(k):
     boom()            

@@ -25,7 +25,7 @@ def solve():
             return -1
         visited.add((r,c,d))
 
-        #다음 칸 검사
+        #다음 칸 검사 (방향전환 시계방향)
         rd = (d+1)%4
         nr, nc = r+dr[rd], c+dc[rd]
 
@@ -38,15 +38,17 @@ def solve():
             time+=1
             continue
         
-        #다음칸이 벽이면
+        #방향전환햐야 하는데 벽이면
         nr, nc = r+dr[d], c+dc[d]
         if not in_range(nr,nc):
             return time+1
         
+        #진행방향 1컨 더 전진
         if grid[nr][nc] == '.':
             r,c= nr,nc
             time+=1
             continue
+        #진행햐야 하는데 다음 칸이 벽이면 반시계방향 방향전환
         d=(d+3)%4
     
 print(solve())

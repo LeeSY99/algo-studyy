@@ -30,7 +30,7 @@ for num in a:
                             if not in_range(nr,nc):
                                 continue
 
-                            if nums[nr][nc] and nums[nr][nc][0] > max_num:
+                            if nums[nr][nc] and max(nums[nr][nc]) > max_num:
                                 maxr, maxc = nr, nc
                                 max_num = nums[nr][nc][0]
                         if max_num == 0:

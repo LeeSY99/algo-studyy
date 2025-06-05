@@ -29,10 +29,14 @@ for num in a:
 
                             if not in_range(nr,nc):
                                 continue
-
-                            if nums[nr][nc] and max(nums[nr][nc]) > max_num:
+                            
+                            n_stack = nums[nr][nc]
+                            if not n_stack:
+                                continue
+                            candidate = max(n_stack)
+                            if candidate > max_num:
                                 maxr, maxc = nr, nc
-                                max_num = nums[nr][nc][0]
+                                max_num = candidate
                         if max_num == 0:
                             nums[i][j].append(now_value)
                             continue

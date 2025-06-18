@@ -31,7 +31,7 @@ def check(choosed):
     count = 0
     end = -1
     for a, b in choosed:
-        if b>end:
+        if a>end:
             count+=1
             end = b
     return count        

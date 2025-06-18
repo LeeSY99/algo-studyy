@@ -28,6 +28,7 @@ def choose(a):
     select.pop()
 
 def check(choosed):
+    choosed.sort(key = lambda x:x[1])
     count = 0
     end = -1
     for a, b in choosed:

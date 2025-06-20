@@ -27,7 +27,7 @@ for i in range(n): #한 행에 2명 도둑
             val2 = get_max_value(part2)
             max_result=max(max_result, val1+val2)
 
-for i in range(n):
+for i in range(n): #도둑이 나눠서 들어감
     for j in range(n-m+1):
         part1 = room[i][j:j+m]
         val1 = get_max_value(part1)

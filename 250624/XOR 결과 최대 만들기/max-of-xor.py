@@ -1,17 +1,19 @@
 n, m = map(int, input().split())
+nums = list(map(int, input().split()))
 
 choosed = []
-def choose(cur_num, count):
-    if cur_num == n+1:
+
+def choose(index, count):
+    if index == n:
         if count == m:
             calc()
         return
 
-    choosed.append(cur_num)
-    choose(cur_num+1, count+1)
+    choosed.append(nums[index])
+    choose(index+1, count+1)
     choosed.pop()
 
-    choose(cur_num+1, count)
+    choose(index+1, count)
 
 ans = 0
 def calc():
@@ -21,5 +23,5 @@ def calc():
         xor_result = xor_result ^ num
     ans = max(ans, xor_result)
 
-choose(1,0)
+choose(0,0)
 print(ans)

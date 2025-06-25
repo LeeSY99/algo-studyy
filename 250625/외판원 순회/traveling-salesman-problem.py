@@ -26,13 +26,15 @@ ans = sys.maxsize
 def calc():
     global ans
     result = 0
-    for a in range(n-1):
+    selected_index.append(0)
+    for a in range(n):
         i, j = selected_index[a], selected_index[a+1]
         if aij[i][j] == 0:
+            selected_index.pop()
             return
         result += aij[i][j]
-    result += aij[selected_index[-1]][0]
     ans = min(ans, result)
+    selected_index.pop()
 
 backtrack(1)
 print(ans)

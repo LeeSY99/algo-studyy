@@ -42,30 +42,31 @@ def group():
 
 
 def calc_score(groups, group_num, group_all):
+    g = len(groups)
+    contact = [[0]*g for _ in range(g)]
+    visited = [[0]*n for _ in range(n)]
+
+    for r in range(n):
+        for c in range(n):
+            g1 = group_all[r][c]
+            for dr, dc in zip(drs,dcs):
+                nr, nc = r+dr, c+dc
+                if not in_range(nr,nc):
+                    continue
+                g2 = group_all[nr][nc]
+                if g1==g2:
+                    continue
+                a, b = (g1,g2) if g1<g2 else (g2,g1)
+                contact[a][b] +=1
+                
     score = 0
-    for i in range(len(groups)-1):
-        for j in range(i+1, len(groups)):#i는 첫번쨰 그룹, j는 2번쨰 그룹
-            group_a_count = group_num[i]
-            group_b_count = group_num[j]
-            group_a_value = groups[i]
-            group_b_value = groups[j]
-            count = 0
-            for r1 in range(n):
-                for c1 in range(n):
-                    for r2 in range(n):
-                        for c2 in range(n):
-                            if group_all[r1][c1] == i and group_all[r2][c2] == j:# 해당 그룹에 속하고
-                                if abs(r1-r2) + abs(c1-c2) == 1: #2개의 칸이 접함
-                                    count+=1
-            value = (group_a_count+group_b_count) * group_a_value * group_b_value * count
-            # print(i,j,count)
-            if value > 0:
-                # print(i,j,count,value)
-                score+=value
+    for a in range(g):
+        for b in range(a+1,g):
+            cnt = contact[a][b]
+            if cnt:
+                score += (group_num[a] + group_num[b]) * groups[a] * groups[b] *cnt //2
     return score
 
-
-    pass
 
 def cross_rotate():
     for dist in range(1,n//2+1):

@@ -78,21 +78,19 @@ def calc(rnd):
     elif direction == 1:
         j = rnd%n
         for i in range(n-1,-1,-1):
-            score +=calc_score(i,j)
-            if score:
-                return score
+            if grid[i][j] != 0 and grid[i][j] != 4:
+                return calc_score(i,j)
     elif direction == 2:
         i = n-(rnd%n)-1
         for j in range(n-1,-1,-1):
-            score +=calc_score(i,j)
-            if score:
-                return score
+            if grid[i][j] != 0 and grid[i][j] != 4:
+                return calc_score(i,j)
     elif direction == 3:
         j = n-(rnd%n)-1
         for i in range(n):
-            score +=calc_score(i,j)
-            if score:
-                return score
+            if grid[i][j] != 0 and grid[i][j] != 4:
+                return calc_score(i,j)
+    return 0
     
             
 def calc_score(i,j):

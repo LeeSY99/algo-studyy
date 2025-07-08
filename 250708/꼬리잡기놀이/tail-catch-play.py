@@ -35,8 +35,11 @@ def dfs(r,c,idx):
     for dr, dc in zip(drs,dcs):
         nr,nc = r+dr, c+dc
         if in_range(nr,nc) and not visited[nr][nc]:
-            if grid[nr][nc] == 2 or grid[nr][nc] == 3:
+            if grid[r][c] == 1 and grid[nr][nc] == 2:
                 dfs(nr,nc,idx)
+            elif grid[r][c] == 2 and grid[nr][nc] in (2,3):
+                dfs(nr,nc,idx)
+            
 
 
 drs, dcs = [-1,1,0,0], [0,0,-1,1]
@@ -49,13 +52,14 @@ def move():
         r, c = team[0]
         for dr, dc in zip(drs,dcs):
             nr, nc = r+dr, c+dc
-            if in_range(nr,nc) :
-                if grid[nr][nc] == 4 :
-                    team.insert(0,(nr,nc))
-                    del_r, del_c = team.pop()
-                    new_grid[del_r][del_c] = 4
-                if grid[nr][nc] == 3:
-                    team.insert(0,team.pop())
+            if in_range(nr,nc) and grid[nr][nc] in (3,4):
+                new_rc = (nr,nc)
+                removed = team.pop()
+                team.appendleft(new_rc)
+
+                if removed != new_rc:
+                    new_grid[removed[0]][removed[1]] = 4
+                break
                     
         for idx in range(len(team)):
             r, c = team[idx]
@@ -71,47 +75,46 @@ def move():
 
 
 def calc(rnd):
-    score = 0
-    # dis, dcs = [0,-1,0,1], [1,0,-1,0]
-    direction = (rnd//n)%4
-    if direction == 0:
-        i = rnd%n
-        for j in range(n):
-            if grid[i][j] != 0 and grid[i][j] != 4:
-                return calc_score(i,j)
-    elif direction == 1:
-        j = rnd%n
-        for i in range(n-1,-1,-1):
-            if grid[i][j] != 0 and grid[i][j] != 4:
-                return calc_score(i,j)
-    elif direction == 2:
-        i = n-(rnd%n)-1
-        for j in range(n-1,-1,-1):
-            if grid[i][j] != 0 and grid[i][j] != 4:
-                return calc_score(i,j)
-    elif direction == 3:
-        j = n-(rnd%n)-1
-        for i in range(n):
-            if grid[i][j] != 0 and grid[i][j] != 4:
-                return calc_score(i,j)
+    # 0: 오른, 1:위 2:왼, 3:아래
+    d = (rnd//n)%4
+    offset = rnd%n
+
+    if d==0:
+        r,c,dr,dc = offset, 0,0,1
+    elif d==1:
+        r,c,dr,dc = n-1,offset,-1,0
+    elif d==2:
+        r,c,dr,dc = n-offset-1,n-1,0,-1
+    else:
+        r,c,dr,dc = 0,n-offset-1,1,0
+
+    while in_range(r,c):
+        if grid[r][c] in (1,2,3):
+            return calc_score(r,c)
+        r +=dr
+        c +=dc
     return 0
+    
     
             
 def calc_score(i,j):
-    for idx in range(m):
-        team = team_index[idx]
-        for s in range(len(team)):
-            ti, tj = team[s]
+    for idx, team in enumerate(team_index):
+        for s,(ti, tj) in enumerate(team):
             if ti == i and tj == j:
                 score = (s+1)**2
                 #머리 꼬리 바꾸기
-                head = team[0]
-                tail = team[-1]
-                head, tail = tail, head
-                grid[head[0]][head[1]] = 1
-                grid[tail[0]][tail[1]] = 3
-                team_index[idx] = deque(list(team)[::-1])
+                reversed_team = deque(list(team)[::-1])
+                team_index[idx] = reversed_team     
+
+                for k, (rr,cc) in enumerate(reversed_team):
+                    if k == 0:
+                        grid[rr][cc] = 1
+                    elif k == len(reversed_team)-1:
+                        grid[rr][cc] = 3
+                    else:
+                        grid[rr][cc] = 2           
                 return score
+    return 0
                     
 
 
@@ -125,9 +128,10 @@ def print_grid(grid):
     print('--------')
 
 seperate_team()
+# print(team_index)
 score=0
 for r in range(k):
-    # print(team_index)
+    # print(f'{r+1}턴')
     # print(visited)
     move()
     # print(team_index)

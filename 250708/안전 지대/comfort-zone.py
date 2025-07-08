@@ -30,7 +30,7 @@ def calc_safe_area():
 
 
 max_safe_area = 0
-ans_k = 0
+ans_k = 1
 for k in range(1, 100):
     visited = [[0]*m for _ in range(n)]
     safe_area = calc_safe_area()

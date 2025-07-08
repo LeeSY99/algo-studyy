@@ -44,7 +44,9 @@ def dfs(r,c,idx):
 
 drs, dcs = [-1,1,0,0], [0,0,-1,1]
 def move():
-    '''팀별 한칸 씩 이동 (dfs) '''
+    '''팀별 한칸 씩 이동 (dfs)
+    새 머리 좌표 + 꼬리 제외 나머지 
+    list로 가능함. insert생각해서 deque를 사용했지만 '''
     global grid
     new_grid = [a[:] for a in grid]
     for i in range(m):
@@ -52,6 +54,8 @@ def move():
         r, c = team[0]
         for dr, dc in zip(drs,dcs):
             nr, nc = r+dr, c+dc
+            ### 다음칸이 0이나 2가 아니면 머리는 이동가능
+            ### 결국은 3,4 찾는거랑 같을지도?
             if in_range(nr,nc) and grid[nr][nc] in (3,4):
                 new_rc = (nr,nc)
                 removed = team.pop()
@@ -102,7 +106,7 @@ def calc_score(i,j):
         for s,(ti, tj) in enumerate(team):
             if ti == i and tj == j:
                 score = (s+1)**2
-                #머리 꼬리 바꾸기
+                #머리 꼬리 바꾸기 ->> 그냥 리스트 뒤집으면 됨
                 reversed_team = deque(list(team)[::-1])
                 team_index[idx] = reversed_team     
 

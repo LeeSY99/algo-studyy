@@ -2,6 +2,8 @@
 비가 k만큼 오면 높이가 k 이하인 집은 잠김
 잠기지 않은 집끼리 인접해 있으면 같은 안전영역으로 보고
 안전영역을 구함 -> 안전영역이 최대일때의 K와 그때의 안전영역 수'''
+import sys
+sys.setrecursionlimit(10000)
 
 n, m = map(int, input().split())
 house = [list(map(int, input().split())) for _ in range(n)]

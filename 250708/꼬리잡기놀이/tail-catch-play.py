@@ -49,10 +49,14 @@ def move():
         r, c = team[0]
         for dr, dc in zip(drs,dcs):
             nr, nc = r+dr, c+dc
-            if in_range(nr,nc) and grid[nr][nc] == 4:
-                team.insert(0,(nr,nc))
-                del_r, del_c = team.pop()
-                new_grid[del_r][del_c] = 4
+            if in_range(nr,nc) :
+                if grid[nr][nc] == 4 :
+                    team.insert(0,(nr,nc))
+                    del_r, del_c = team.pop()
+                    new_grid[del_r][del_c] = 4
+                if grid[nr][nc] == 3:
+                    team.insert(0,team.pop())
+                    
         for idx in range(len(team)):
             r, c = team[idx]
             if idx == 0:

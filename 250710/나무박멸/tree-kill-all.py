@@ -103,7 +103,7 @@ def kill():
                 continue
             if grid[nr][nc] != -1:
                 new_grid[nr][nc] = 0
-                kill_medicine[nr][nc]+=(c+1)
+                kill_medicine[nr][nc]=(c+1)
             if grid[nr][nc] <= 0:
                 break
     grid = new_grid

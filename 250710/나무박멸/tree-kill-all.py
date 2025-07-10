@@ -28,14 +28,15 @@ def grow():
     global grid
     new_grid = [g[:] for g in grid]
     #나무 탐색:
-    for r in range(n):
-        for c in range(n):
-            if grid[r][c] <=0:
+    ##여기서 변수r,c보다는 다른걸 사용해야함
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j] <=0:
                 continue
             for dr, dc in zip(drs,dcs):
-                nr, nc = r+dr, c+dc
+                nr, nc = i+dr, j+dc
                 if in_range(nr,nc) and grid[nr][nc]>0:
-                    new_grid[r][c] +=1
+                    new_grid[i][j] +=1
     grid = new_grid
 
 #나무 번식

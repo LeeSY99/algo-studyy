@@ -10,9 +10,11 @@ class info:
         print(f'city {self.city}')
 
 n = int(input())
-
+people = []
 for i in range(n):
     name, addr, city = input().split()
     person = info(name,addr,city)
-    if i == n-1:
-        person.print_info()
+    people.append(person)
+
+people.sort(lambda x: x.name)
+people[-1].print_info()

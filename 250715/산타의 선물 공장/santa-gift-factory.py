@@ -65,8 +65,8 @@ class Belt:
     def remove(self, box):
         if box == self.head:
             box.next.prev = None
-            box.next = None
             self.head = box.next
+            box.next = None
         elif box == self.tail:
             box.prev.next = None
             box.prev = None

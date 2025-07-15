@@ -69,8 +69,8 @@ class Belt:
             box.next = None
         elif box == self.tail:
             box.prev.next = None
-            box.prev = None
             self.tail = box.prev
+            box.prev = None
         else:
             box.prev.next = box.next
             box.next.prev = box.prev

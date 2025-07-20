@@ -129,7 +129,7 @@ def laser_attack():
 def bomb_attack():
     drs1, dcs1 = [-1,-1,0,1,1,1,0,-1],[0,1,1,1,0,-1,-1,-1]
     for dr, dc in zip(drs1,dcs1):
-        nr, nc = (strongest.r+dr)%4, (strongest.c+dc)%m
+        nr, nc = (strongest.r+dr)%n, (strongest.c+dc)%m
         if (nr,nc) == (attacker.r,attacker.c):
             continue
         grid[nr][nc] -= attacker.power//2

@@ -1,7 +1,6 @@
 class Node:
-    def __init__(self, id, data):
+    def __init__(self, id):
         self.id = id
-        self.data=data
         self.next=None
         self.prev = None
 
@@ -32,15 +31,15 @@ def insert_next(j_node,i_node):
     else:
         i_node.next.prev = j_node
         j_node.next = i_node.next
-        i_node.prev = j_node
-        j_node.next = i_node
+        i_node.next = j_node
+        j_node.prev = i_node
 
 
 
 n = int(input())
 nodes = {}
 for i in range(1,n+1):
-    new_node = Node(i,i)
+    new_node = Node(i)
     nodes[i] = new_node
 
 q = int(input())
@@ -68,7 +67,7 @@ for _ in range(q):
 
 for i in range(1,n+1):
     node = nodes[i]
-    a = 0 if node.next is None else node.next.data
+    a = 0 if node.next is None else node.next.id
     print(a, end = ' ')
 
 

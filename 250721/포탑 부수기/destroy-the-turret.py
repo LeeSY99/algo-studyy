@@ -82,6 +82,7 @@ def can_laserattack(rnd):
     s_r, s_c = strongest.r, strongest.c
     e_r, e_c = attacker.r, attacker.c
 
+    effected[e_r][e_c] = 1
     lastattack[e_r][e_c] = rnd
     visited = [[0] * m for _ in range(n)]
     dist = [[n*m] * m for _ in range(n)]
@@ -108,16 +109,17 @@ def can_laserattack(rnd):
         for dr, dc in zip(drs,dcs):
             nr, nc = (e_r+dr)%n, (e_c+dc)%m
             if dist[nr][nc]<min_dist:
-                road.append((nr,nc))
                 min_dist = dist[nr][nc]
                 e_r = nr
                 e_c = nc
                 break
         if (e_r,e_c) == (s_r,s_c):
             break
+        road.append((nr,nc))
     return True, road
 
 def laser_attack():
+    # print(f'road: {road}')
     for r, c in road:
         grid[r][c] -= attacker.power//2
         effected[r][c] = 1
@@ -125,13 +127,13 @@ def laser_attack():
     effected[strongest.r][strongest.c] = 1
 
 def bomb_attack():
-    drs1, drs2 = [-1,-1,0,1,1,1,0,-1],[0,1,1,1,0,-1,-1,-1]
+    drs1, dcs1 = [-1,-1,0,1,1,1,0,-1],[0,1,1,1,0,-1,-1,-1]
     for dr, dc in zip(drs1,dcs1):
         nr, nc = (strongest.r+dr)%4, (strongest.c+dc)%m
         if (nr,nc) == (attacker.r,attacker.c):
             continue
         grid[nr][nc] -= attacker.power//2
-        effected[r][c] = 1
+        effected[nr][nc] = 1
     grid[strongest.r][strongest.c] -= attacker.power
     effected[strongest.r][strongest.c] = 1
 
@@ -174,14 +176,17 @@ for r in range(1,k+1):
 
     effected =  [[0] * m for _ in range(n)]
     # can_laserattack(r)
-    can_laserattack, road = can_laserattack(r)
-    # if can_laserattack:
-    #     laser_attack()
-    # else:
-    #     bomb_attack()
+    can_laser, road = can_laserattack(r)
+    if can_laser:
+        laser_attack()
+    else:
+        bomb_attack()
 
-    # tower_break()
-    # maintain_tower()
+    # print_that(grid)
+    tower_break()
+
+    maintain_tower()
+    # print_that(grid)
 
 power = 0
 for i in range(n):

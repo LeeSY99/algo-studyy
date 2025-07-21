@@ -45,16 +45,14 @@ class Rabbit:
         self.dist = dist
         self.score = 0
         self.jump_count = 0
+        self.last_jump = 0
 
 def select_run_rabbit():
-    run_rabbits = []
-    for rabbit in rabbits.values():
-        priority = (rabbit.jump_count, rabbit.r+rabbit.c, rabbit.r, rabbit.c, rabbit.id)
-        heapq.heappush(run_rabbits, priority)
-    # print(run_rabbits)
-    id =  run_rabbits[0][-1]
-    # print(id)
-    return rabbits[id]
+    while run_rabbits:
+        jc, rc_sum, r, c, rid = heapq.heappop(run_rabbits)
+        rabbit = rabbits[rid]
+        if (jc, rc_sum, r, c) == (rabbit.jump_count, rabbit.r + rabbit.c, rabbit.r, rabbit.c):
+            return rabbit
 
 def in_range(r,c):
     return 0<r<=n and 0<c<=m
@@ -67,19 +65,16 @@ def bounce(pos, dist, limit):
     else:   # 역방향
         return 2 * limit - (d+1)
 
-def select_best_position(rabbit):
+def select_best_position(rabbit,rnd):
     drs, dcs = [0,1,0,-1],[1,0,-1,0]
-    distance = rabbit.dist
     positions = []
-    cycle_r = (n-1)*2
-    cycle_c = (m-1)*2
     for dr, dc in zip(drs,dcs):
         if dr != 0:
-            new_r = bounce(rabbit.r, rabbit.dist, n)
+            new_r = bounce(rabbit.r, dr * rabbit.dist, n)
             new_c = rabbit.c
         else:
             new_r = rabbit.r
-            new_c = bounce(rabbit.c, rabbit.dist, m)
+            new_c = bounce(rabbit.c, dc * rabbit.dist, m)
         heapq.heappush(positions,(-new_r-new_c, -new_r, -new_c))
     best_pos = positions[0]
     best_r = -best_pos[1]
@@ -90,6 +85,9 @@ def select_best_position(rabbit):
     rabbit.r = best_r
     rabbit.c = best_c
     rabbit.jump_count += 1
+    rabbit.last_jump = rnd
+    priority = (rabbit.jump_count, rabbit.r+rabbit.c, rabbit.r, rabbit.c, rabbit.id)
+    heapq.heappush(run_rabbits, priority)
     for r in rabbits.values():
         if r.id == rabbit.id:
             continue
@@ -97,26 +95,23 @@ def select_best_position(rabbit):
         # print(r.id, r.score)
         # print('---------')
 
-def plus_score(s):
+def plus_score(s,rnd):
     compare = []
     for rabbit in rabbits.values():
         priority = (-(rabbit.r+rabbit.c), -rabbit.r, -rabbit.c, -rabbit.id)
         heapq.heappush(compare, priority)
     
-    for com in compare:
+    while compare:
+        com = heapq.heappop(compare)
         plus_rabbit_id = -com[3]
-        if rabbits[plus_rabbit_id].jump_count == 0:
-            continue
-        rabbits[plus_rabbit_id].score += s
-        # print(plus_rabbit_id,rabbits[plus_rabbit_id].score)
-        # print('-------')
-        break
+        if rabbits[plus_rabbit_id].last_jump == rnd:
+            rabbits[plus_rabbit_id].score += s
+            break
 
-def jump_count_zero():
-    for rabbit in rabbits.values():
-        rabbit.jump_count = 0 
 
-for _ in range(q):
+
+run_rabbits = []
+for rnd in range(q):
     to_do, *remain = map(int, input().split())
     to_do = int(to_do)
     if to_do == 100:
@@ -125,13 +120,14 @@ for _ in range(q):
             id, dist = remain[3 + i*2], remain[4 + i*2]
             rabbit = Rabbit(id, dist)
             rabbits[id] = rabbit
+            priority = (rabbit.jump_count, rabbit.r+rabbit.c, rabbit.r, rabbit.c, rabbit.id)
+            heapq.heappush(run_rabbits, priority)
     elif to_do == 200:
         k, s = remain[0], remain[1]
         for _ in range(k):
             best_rabbit = select_run_rabbit()
-            select_best_position(best_rabbit)
-        plus_score(s)
-        jump_count_zero()
+            select_best_position(best_rabbit,rnd)
+        plus_score(s,rnd)
     elif to_do == 300:
         pid, L = remain[0], remain[1]
         rabbits[pid].dist *= L

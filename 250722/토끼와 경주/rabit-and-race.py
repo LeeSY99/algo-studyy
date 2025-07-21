@@ -59,22 +59,28 @@ def select_run_rabbit():
 def in_range(r,c):
     return 0<r<=n and 0<c<=m
 
+def bounce(pos, dist, limit):
+    cycle = 2 * (limit-1)
+    d = (pos-1+dist) % cycle #-1하는 이유는 0-based 맞추고
+    if d < limit: #정방향
+        return d+1  #여기서 다시 +1
+    else:   # 역방향
+        return 2 * limit - (d+1)
+
 def select_best_position(rabbit):
     drs, dcs = [0,1,0,-1],[1,0,-1,0]
     distance = rabbit.dist
     positions = []
-    for d in range(4):
-        r = rabbit.r
-        c = rabbit.c
-        nr,nc = r,c
-        for _ in range(1, distance+1):
-            nr += drs[d] 
-            nc += dcs[d]
-            if not in_range(nr,nc):
-                d = (d+2)%4
-                nr += 2*drs[d] 
-                nc += 2*dcs[d]
-        heapq.heappush(positions,(-nr-nc, -nr, -nc))
+    cycle_r = (n-1)*2
+    cycle_c = (m-1)*2
+    for dr, dc in zip(drs,dcs):
+        if dr != 0:
+            new_r = bounce(rabbit.r, rabbit.dist, n)
+            new_c = rabbit.c
+        else:
+            new_r = rabbit.r
+            new_c = bounce(rabbit.c, rabbit.dist, m)
+        heapq.heappush(positions,(-new_r-new_c, -new_r, -new_c))
     best_pos = positions[0]
     best_r = -best_pos[1]
     best_c = -best_pos[2]

@@ -107,7 +107,7 @@ def turn_map():
             new_grid [r1][c1] = grid [r0][c0]
             new_people[r1][c1] = people[r0][c0]
 
-    # 3) 내구도 1 감소 (오타 수정됨)
+    # 3) 내구도 1 감소 
     for i in range(max_size):
         for j in range(max_size):
             r1 = best_sr + i

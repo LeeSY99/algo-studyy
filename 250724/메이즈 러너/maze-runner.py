@@ -33,107 +33,116 @@ goal_r, goal_c = r-1, c-1
 dist = 0
 def in_range(r,c):
     return 0<=r<n and 0<=c<n
+
+drs,dcs = [-1,1,0,0],[0,0,-1,1]
 def move():
     global dist, people, people_rc
-    people = [[0] * n for _ in range(n)]
-    new_people_rc = []
-    # print(people_rc)
-    for i, (p_r, p_c) in enumerate(people_rc):
-        # print(p_r,p_c)
-        if p_r > goal_r:
-            if in_range(p_r-1,p_c) and grid[p_r-1][p_c] == 0:
-                dist += 1
-                people_rc[i] = (p_r-1, p_c)
-                continue
-        if p_r < goal_r:
-            if in_range(p_r+1,p_c) and grid[p_r+1][p_c] == 0:
-                dist += 1
-                people_rc[i] = (p_r+1, p_c)
-                continue
-        if p_c > goal_c:
-            if in_range(p_r,p_c-1) and grid[p_r][p_c-1] == 0 :
-                dist += 1
-                people_rc[i] = (p_r, p_c-1)
-                continue
-        if p_c < goal_c:
-            if in_range(p_r,p_c+1) and grid[p_r][p_c+1] == 0 :
-                dist += 1
-                people_rc[i] = (p_r, p_c+1)
-                continue
-
-
-    for p_r, p_c in people_rc:
-        if (p_r,p_c) == (goal_r,goal_c):
+    people = [[0]*n for _ in range(n)]
+    new_people = []
+    for i in range(len(people_rc)):
+        r, c = people_rc[i]
+        if (r,c) == (goal_r,goal_c):
             continue
-        new_people_rc.append((p_r,p_c))
-        people[p_r][p_c] = 1
-    people_rc = new_people_rc
+
+        # 상→하→좌→우 우선, 출구까지 거리 감소 여부 확인
+        for dr, dc in zip(drs, dcs):
+            nr, nc = r+dr, c+dc
+            if not in_range(nr,nc) or grid[nr][nc] != 0:
+                continue
+            before = abs(goal_r-r) + abs(goal_c-c)
+            after  = abs(goal_r-nr) + abs(goal_c-nc)
+            if after < before:
+                dist += 1
+                r, c = nr, nc
+                break
+
+        # 종료 안 한 참가자만 기록
+        if (r,c) != (goal_r,goal_c):
+            new_people.append((r,c))
+            people[r][c] = 1
+
+        people_rc[i] = (r,c)
+
+    people_rc[:] = new_people
+
     # print('이동 후 좌표')
     # print(people_rc)
 
 def turn_map():
-    global grid, people, people_rc
-    global goal_r, goal_c
+    global grid, people, people_rc, goal_r, goal_c
     max_size = n+1
-    best_sr=-1
-    best_sc=-1
-    for size in range(1, n + 1):
-        for sr in range(n - size + 1):
-            for sc in range(n - size + 1):
-                er = sr + size - 1
-                ec = sc + size - 1
+    best_sr = best_sc = -1
 
-                # goal이 이 정사각형 안에 포함되는지 확인
-                if not (sr <= goal_r <= er and sc <= goal_c <= ec):
+    # 1) goal 포함 + 사람 최소 1명 → 최소 크기, 같으면 sr,sc 작은 것
+    for size in range(1, n+1):
+        for sr in range(n-size+1):
+            for sc in range(n-size+1):
+                er = sr+size-1
+                ec = sc+size-1
+
+                if not (sr<=goal_r<=er and sc<=goal_c<=ec):
                     continue
 
-                # 사람 있는지 확인
-                has_person = False
-                for i in range(sr, er + 1):
-                    for j in range(sc, ec + 1):
+                found = False
+                for i in range(sr, er+1):
+                    for j in range(sc, ec+1):
                         if people[i][j]:
-                            has_person = True
+                            found = True
                             break
-                    if has_person:
+                    if found:
                         break
 
-                # 조건 만족하면 갱신
-                if has_person:
-                    if size < max_size or (size == max_size and (sr < best_sr or (sr == best_sr and sc < best_sc))):
-                        max_size = size
-                        best_sr = sr
-                        best_sc = sc
-    # print('best_sr,sc:',best_sr,best_sc, max_size)
-    new_grid = [row[:] for row in grid]
+                if found:
+                    if size < max_size or (size==max_size and (sr<best_sr or (sr==best_sr and sc<best_sc))):
+                        max_size, best_sr, best_sc = size, sr, sc
+
+    # 2) 회전
+    new_grid  = [row[:] for row in grid]
+    new_people= [row[:] for row in people]
     for i in range(max_size):
         for j in range(max_size):
-            new_grid[best_sr+j][best_sc - i + max_size - 1] = grid[best_sr+i][best_sc+j]
+            r0, c0 = best_sr+i, best_sc+j
+            r1 = best_sr + j
+            c1 = best_sc + (max_size-1 - i)
+            new_grid [r1][c1] = grid [r0][c0]
+            new_people[r1][c1] = people[r0][c0]
 
-    new_people = [row[:] for row in people]
+    # 3) 내구도 1 감소 (오타 수정됨)
     for i in range(max_size):
         for j in range(max_size):
-            new_people[best_sr+j][best_sc - i + max_size - 1] = people[best_sr+i][best_sc+j]
-    people = new_people
-    # print_that(people)
+            r1 = best_sr + i
+            c1 = best_sc + j
+            if new_grid[r1][c1] > 0:
+                new_grid[r1][c1] -= 1
 
-    people_rc= []
-    for i in range(n):
-        for j in range(n):
-            if people[i][j]:
-                people_rc.append((i,j))
-
-    
+    # 4) 출구 좌표 갱신
     rel_r = goal_r - best_sr
     rel_c = goal_c - best_sc
-    new_goal_r = best_sr + rel_c
-    new_goal_c = best_sc + (max_size - 1 - rel_r)
-    goal_r, goal_c = new_goal_r, new_goal_c
+    goal_r = best_sr + rel_c
+    goal_c = best_sc + (max_size - 1 - rel_r)
 
+    # 2) 참가자 리스트(old_rc)를 사각형 안팎 구분 없이 회전
+    old_rc = people_rc[:]    # 기존 순서와 중복 그대로 보존
+    new_people_rc = []
+    for r, c in old_rc:
+        if best_sr <= r < best_sr + max_size and best_sc <= c < best_sc + max_size:
+            tr = r - best_sr
+            tc = c - best_sc
+            nr = best_sr + tc
+            nc = best_sc + (max_size - 1 - tr)
+        else:
+            nr, nc = r, c
+        new_people_rc.append((nr, nc))
+    people_rc = new_people_rc
+
+    # 3) boolean grid 재생성
+    people = [[0]*n for _ in range(n)]
+    for r, c in people_rc:
+        if (r, c) != (goal_r, goal_c):  # 탈출한 참가자 제외
+            people[r][c] = 1
+
+    # 4) 전역 grid 갱신
     grid = new_grid
-    for r in range(max_size):
-        for c in range(max_size):
-            if grid[best_sr+r][best_sr+c]>0:
-                grid[best_sr+r][best_sr+c]-=1
 
 
 def print_that(aa):
@@ -146,6 +155,8 @@ for time in range(k):
     # print(f'{time+1}초')
     # print(f'출구 좌표 :{goal_r} {goal_c}')
     move()
+    if not people_rc:
+        break
     # print('이동 후')
     # print_that(people)
     # print('맵')

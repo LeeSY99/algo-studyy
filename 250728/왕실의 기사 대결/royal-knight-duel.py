@@ -91,20 +91,6 @@ def move(start_id,d):
     return chain
         
     
-    # now_id = knight.id
-    # recent_moved.append(now_id)
-    # r,c = knight.r, knight.c
-    # w,h = knight.w, knight.h
-    # dr, dc = drs[d], dcs[d]
-    # for i in range(r,r+h):
-    #     for j in range(c,c+w):
-    #         nr,nc = i+dr, j+dc
-    #         if in_range(nr,nc) and knights_on_chess[nr][nc] != 0 and knights_on_chess[nr][nc] != now_id:
-    #             move(alive_knights[knights_on_chess[nr][nc]], d)
-    #         elif not in_range(nr,nc) or grid[nr][nc] == 2:
-    #             all_move = False
-                
-    # return all_move
 
 def move_knight(i, d):
     global recent_moved, knights_on_chess
@@ -112,10 +98,6 @@ def move_knight(i, d):
     if i not in alive_knights:
         return
 
-    # recent_moved = []
-    # all_move = True
-    # knight = alive_knights[i]
-    # move(i,d)
     # print(f" 모두 이동가능? -> {all_move}")
     chain = move(i,d)
     # print(chain)

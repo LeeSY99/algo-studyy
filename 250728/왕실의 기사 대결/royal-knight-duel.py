@@ -75,6 +75,7 @@ def move(start_id,d):
         nr, nc = knight.r + dr, knight.c + dc
         h, w = knight.h, knight.w
 
+        #perfix_sum으로 wall을 계산하면 더 복잡도를 줄일 수 있을듯
         for i in range(nr, nr+h):
             for j in range(nc, nc+w):
                 if not in_range(i,j) or grid[i][j] == 2:

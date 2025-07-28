@@ -10,10 +10,11 @@ def in_range(r,c):
 for i in range(n):
     ok = True
     for j in range(sj, ej+1):
+        
         if in_range(i+1,j) and grid[i+1][j] == 1:
             ok = False
 
-    if not ok:
+    if not ok or i == n-1:
         for j in range(sj, ej+1):
             grid[i][j] = 1
         break

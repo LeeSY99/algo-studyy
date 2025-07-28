@@ -106,7 +106,8 @@ def move_knight(i, d):
             w,h = knight.w, knight.h
             for i in range(r,r+h):
                 for j in range(c,c+w):
-                    knights_on_chess[i][j]= knight.id
+                    if in_range(i,j):
+                        knights_on_chess[i][j]= knight.id
     # print_that(knights_on_chess)
     # return True
 
@@ -118,7 +119,7 @@ def calc_damage():
             continue
         knight = alive_knights[id]
         sr,sc = knight.r, knight.c
-        er,ec = sr+knight.h-1, sc+knight.w-1
+        er,ec = min(sr+knight.h-1,l), min(sc+knight.w-1,l)
 
         damage = wall_prefix_sum[er][ec] - wall_prefix_sum[sr-1][ec] - wall_prefix_sum[er][sc-1] + wall_prefix_sum[sr-1][sc-1]
         knight.health = knight.health - damage

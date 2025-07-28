@@ -52,68 +52,95 @@ class Knight:
 alive_knights = {}
 knights_on_chess = [[0]*(l+1) for _ in range(l+1)]
 recent_moved = []
-recent_moved_id = []
-all_move = True
 
 drs,dcs = [-1,0,1,0],[0,1,0,-1]
 def in_range(r,c):
     return 1<=r<=l and 1<=c<=l
 
+from collections import deque
 
-
-def move(knight,d):
-    global recent_moved, all_move
-    
-    now_id = knight.id
-    recent_moved.append(now_id)
-    r,c = knight.r, knight.c
-    w,h = knight.w, knight.h
+def move(start_id,d):
     dr, dc = drs[d], dcs[d]
-    for i in range(r,r+h):
-        for j in range(c,c+w):
-            nr,nc = i+dr, j+dc
-            if in_range(nr,nc) and knights_on_chess[nr][nc] != 0 and knights_on_chess[nr][nc] != now_id:
-                move(alive_knights[knights_on_chess[nr][nc]], d)
-            elif not in_range(nr,nc) or grid[nr][nc] == 2:
-                all_move = False
+    visited = set()
+    chain = []
+    q = deque()
+    q.append(start_id)
+
+    while q:
+        cur = q.popleft()
+        if cur in visited:
+            return None
+        visited.add(cur)
+        knight = alive_knights[cur]
+        nr, nc = knight.r + dr, knight.c + dc
+        h, w = knight.h, knight.w
+
+        for i in range(nr, nr+h):
+            for j in range(nc, nc+w):
+                if not in_range(i,j) or grid[i][j] == 2:
+                    return None
+        
+        collided = set()
+        for i in range(nr, nr+h):
+            for j in range(nc, nc+w):
+                other = knights_on_chess[i][j]
+                if other != 0 and other != cur:
+                    collided.add(other)
+        chain.append(cur)
+        q.extend(collided)
+    return chain
+        
+    
+    # now_id = knight.id
+    # recent_moved.append(now_id)
+    # r,c = knight.r, knight.c
+    # w,h = knight.w, knight.h
+    # dr, dc = drs[d], dcs[d]
+    # for i in range(r,r+h):
+    #     for j in range(c,c+w):
+    #         nr,nc = i+dr, j+dc
+    #         if in_range(nr,nc) and knights_on_chess[nr][nc] != 0 and knights_on_chess[nr][nc] != now_id:
+    #             move(alive_knights[knights_on_chess[nr][nc]], d)
+    #         elif not in_range(nr,nc) or grid[nr][nc] == 2:
+    #             all_move = False
                 
-    return all_move
+    # return all_move
 
 def move_knight(i, d):
-    global recent_moved, all_move, knights_on_chess
+    global recent_moved, knights_on_chess
 
     if i not in alive_knights:
         return
 
-    recent_moved = []
-    all_move = True
-    knight = alive_knights[i]
-    move(knight,d)
+    # recent_moved = []
+    # all_move = True
+    # knight = alive_knights[i]
+    # move(i,d)
     # print(f" 모두 이동가능? -> {all_move}")
+    chain = move(i,d)
+    # print(chain)
+    if chain is None:
+        return
+    recent_moved = chain
 
-    if all_move:
-        dr, dc = drs[d], dcs[d]
-        for knight_id in recent_moved:
-            nr = alive_knights[knight_id].r + dr
-            nc = alive_knights[knight_id].c + dc
-            alive_knights[knight_id].r = nr
-            alive_knights[knight_id].c = nc
-
-        knights_on_chess = [[0]*(l+1) for _ in range(l+1)]
-        for knight in alive_knights.values():
-            r = knight.r
-            c = knight.c
-            w,h = knight.w, knight.h
-            for i in range(r,r+h):
-                for j in range(c,c+w):
-                    if in_range(i,j):
-                        knights_on_chess[i][j]= knight.id
+    # if all_move:
+    dr, dc = drs[d], dcs[d]
+    for knight_id in reversed(chain):
+        knight = alive_knights[knight_id]
+        knight.r += dr
+        knight.c += dc
+    
+    knights_on_chess = [[0]*(l+1) for _ in range(l+1)]
+    for kid, knight in alive_knights.items():
+        for rr in range(knight.r, knight.r + knight.h):
+            for cc in range(knight.c, knight.c + knight.w):
+                knights_on_chess[rr][cc] = kid
     # print_that(knights_on_chess)
-    # return True
+    calc_damage()
 
     
 def calc_damage():
-    global alive_knights, knights_on_chess,recent_moved
+    global knights_on_chess
     for i, id in enumerate(recent_moved):
         if i == 0:
             continue
@@ -147,8 +174,7 @@ for _ in range(q):
     i, d = map(int,input().split())
     move_knight(i,d)
     # print(recent_moved)
-    if all_move:
-        calc_damage()
+    # calc_damage()
     # for knight in alive_knights.values():
     #     print(f'{knight.id}기사 위치:{knight.r},{knight.c} 체력: {knight.health}')
 

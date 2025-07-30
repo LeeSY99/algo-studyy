@@ -1,3 +1,6 @@
+import sys
+sys.recursionlimit(10**4)
+
 n = int(input())
 grid = [list(map(int, input().split())) for _ in range(n)]
 

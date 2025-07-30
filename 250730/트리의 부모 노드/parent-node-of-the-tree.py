@@ -1,19 +1,24 @@
 n = int(input())
+from collections import deque, defaultdict
+graph = defaultdict(list)
 
-class Node:
-    def __init__(self,i):
-        self.num = i
-        self.parent = None
-
-    def connect(self, other):
-        self.parent = other
-
-nodes = [None] + [Node(i) for i in range(1,n+1)]
-
-# print(nodes)
 for _ in range(n-1):
-    p, c = map(int, input().split())
-    nodes[c].connect(nodes[p])
+    a,b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+parent = [0] * (n+1)
+visited = [0] * (n+1)
+queue = deque([1])
+visited[1] = 1
+
+while queue:
+    now = queue.popleft()
+    for next in graph[now]:
+        if not visited[next]:
+            visited[next] = 1
+            parent[next] = now
+            queue.append(next)
 
 for i in range(2,n+1):
-    print(nodes[i].parent.num)
+    print(parent[i])

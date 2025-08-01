@@ -8,7 +8,7 @@ for i in range(1,n):
     for j in range(1,m):
         for r in range(i):
             for c in range(j):
-                if grid[r][c] < grid[i][j]:
+                if grid[r][c] < grid[i][j] and dp[r][c]!=0:
                     dp[i][j] = max(dp[i][j], dp[r][c]+1)
 
 

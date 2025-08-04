@@ -1,5 +1,7 @@
 n = int(input())
 from collections import defaultdict
+import sys
+sys.setrecursionlimit(10*8)
 
 graph = defaultdict(list)
 node = defaultdict()

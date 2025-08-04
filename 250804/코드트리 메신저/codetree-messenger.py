@@ -57,8 +57,8 @@ def make_chat_room():
         auth = authority[i]
 
         new_chat = Chat(i,parent,auth)
-        new_chat.parent = parent
         chats[i] = new_chat
+
     for i in range(1,n+1):
         parent = chats[i].parent
         if chats[parent].left is None:
@@ -79,6 +79,8 @@ def change_parent():
     c1,c2 = remain[0], remain[1]
     c1_chat = chats[c1]
     c2_chat = chats[c2]
+    p1_idx = c1_chat.parent
+    p2_idx = c2_chat.parent
     c1_chat_parent = chats[c1_chat.parent]
     c2_chat_parent = chats[c2_chat.parent]
 
@@ -92,8 +94,7 @@ def change_parent():
     else:
         c2_chat_parent.right = c1_chat
 
-    c2_chat.parent = c1_chat_parent
-    c1_chat.parent = c2_chat_parent
+    c1_chat.parent, c2_chat.parent = p2_idx, p1_idx
     
 
 def dfs(i, depth):

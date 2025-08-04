@@ -25,100 +25,91 @@
 5) 알림을 받을 수 있는 채팅방 수 조회
     c번 채팅방까지 알림이 도달할 수 있는 서로 다른 채팅방 수 출력
 '''
+MAX_DEPTH = 20
 
 n, q = map(int, input().split())
-class Root:
-    def __init__(self):
-        self.parent = None
-        self.left = None
-        self.right = None
-        self.chat_num = 0
-
 class Chat:     
-    def __init__(self,num,parent=None,auth=None):
+    def __init__(self,parent=None,power=None):
         self.parent = parent
-        self.left = None
-        self.right = None
-        self.chat_num = num
-        self.auth = auth
+        self.power = min(power,MAX_DEPTH)
         self.alarm_on = True
+        self.D = [0] * (MAX_DEPTH+1)
+        self.D[self.power] += 1
 
-chats = [None] * (n+1)
+chats = [] 
 root = None
 
 def make_chat_room():
-    global root, chats
+    global root, chats, tree
     parents = [0] + remain[:n]
     authority = [0] + remain[n:]
     # root = Root()
-    chats[0] = Chat(0,None,0)
-    for i in range(1,n+1):
-        parent = parents[i]
-        auth = authority[i]
+    for i in range(n+1):
+        chats.append(Chat(parents[i],authority[i]))
 
-        new_chat = Chat(i,parent,auth)
-        chats[i] = new_chat
+    tree = [[] for _ in range(n+1)]
+    for i in range(1, n+1):
+        tree[parents[i]].append(i)
 
-    for i in range(1,n+1):
-        parent = chats[i].parent
-        if chats[parent].left is None:
-            chats[parent].left = chats[i]
-        else:
-            chats[parent].right = chats[i]
+    dfs(0)
 
-def on_off():
-    c = remain[0]
-    chats[c].alarm_on = not chats[c].alarm_on
+def update_path(start_idx, coeff):
+    global n, chats
+    start = chats[start_idx]
+    target_idx = start_idx
+    target = chats[target_idx]
+    depth = 0
+    while 1:
+        if not target.alarm_on or target_idx == 0:
+            break
+        target_idx = target.parent
+        target = chats[target_idx]
+        depth +=1
 
-def change_power():
-    c = remain[0]
-    power = remain[1]
-    chats[c].auth = power
+        for power in range(depth, MAX_DEPTH + 1):
+            target.D[power - depth] += start.D[power] * coeff
 
-def change_parent():
-    c1,c2 = remain[0], remain[1]
-    c1_chat = chats[c1]
-    c2_chat = chats[c2]
-    p1_idx = c1_chat.parent
-    p2_idx = c2_chat.parent
-    c1_chat_parent = chats[c1_chat.parent]
-    c2_chat_parent = chats[c2_chat.parent]
+tree = []
+def dfs(idx):
+    global tree
 
-    if c1_chat_parent.left == c1_chat:
-        c1_chat_parent.left = c2_chat
-    else:
-        c1_chat_parent.right = c2_chat
+    update_path(idx, coeff=1)
+
+    for child_idx in tree[idx]:
+        dfs(child_idx)
+
+
+def on_off(idx):
+    global chats
+
+    update_path(idx, coeff = -1)
+    chats[idx].alarm_on = not chats[idx].alarm_on
+    update_path(idx, coeff = 1)
+
+def change_power(idx, power):
+    global MAX_DEPTH
+    power = min(MAX_DEPTH,power)
+
+    update_path(idx, coeff = -1)
+    chats[idx].D[chats[idx].power] -=1
+    chats[idx].power = power
+    chats[idx].D[chats[idx].power] +=1
+    update_path(idx, coeff = 1)
+
+def change_parent(idx_a, idx_b):
+    global chats
+
+    update_path(idx_a, coeff=-1)
+    update_path(idx_b, coeff=-1)
+
+    chats[idx_a].parent, chats[idx_b].parent = chats[idx_b].parent, chats[idx_a].parent
+
+    update_path(idx_a, coeff=1)
+    update_path(idx_b, coeff=1)
     
-    if c2_chat_parent.left == c2_chat:
-        c2_chat_parent.left = c1_chat
-    else:
-        c2_chat_parent.right = c1_chat
-
-    c1_chat.parent, c2_chat.parent = p2_idx, p1_idx
-    
-
-def dfs(i, depth):
-    global count, chats
-    chat = chats[i]
-
-    if depth <= chat.auth:
-        count += 1
-
-    if chat.left is not None and chat.left.alarm_on:
-        dfs(chat.left.chat_num, depth + 1)
-
-    if chat.right is not None and chat.right.alarm_on:
-        dfs(chat.right.chat_num, depth + 1)
-
             
-count = 0 
-def count_chats():
-    global count
-    # dp = [0]*(n+1)
-    c = remain[0]
-    count = 0
-    dfs(c,0)
-    print(count-1)
+def count_chats(idx):
+    print(sum(chats[idx].D)-1)
 
 # direction, *remain = map(int,input().split())
 # if direction == 100:
@@ -144,13 +135,17 @@ for _ in range(q):
         # print_tree()
     elif direction == 200:
         # pass
-        on_off()
+        c = remain[0]
+        on_off(c)
     elif direction == 300:
         # pass
-        change_power()
+        c, power = remain[0], remain[1]
+        change_power(c, power)
     elif direction == 400:
         # pass
-        change_parent()
+        c1, c2 = remain[0], remain[1]
+        change_parent(c1, c2)
     elif direction == 500:
         # pass
-        count_chats()
+        c=remain[0]
+        count_chats(c)

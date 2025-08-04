@@ -1,6 +1,8 @@
 n = int(input())
 
 nums = [0] + list(map(int, input().split()))
+import sys
+sys.setrecursionlimit(10**6)
 
 
 edges = [[] for _ in range(n+1)]

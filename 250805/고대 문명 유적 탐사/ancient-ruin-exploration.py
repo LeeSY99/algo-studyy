@@ -49,9 +49,9 @@ def turn(r,c, time, best_grid2):
         for i in range(3):
             for j in range(3):
                 new_grid2[j+r-1][c+1-i] = best_grid2[i+r-1][j+c-1]
-        new_grid = [g[:] for g in new_grid2]
+        best_grid2 = [g[:] for g in new_grid2]
 
-    return new_grid
+    return new_grid2
 
 
 
@@ -66,7 +66,7 @@ def search1():
                 count_sum, after_grid = bfs(new_grid)
                 if best_treasure < count_sum:
                     best_treasure = count_sum
-                    best_grid = after_grid
+                    best_grid = [g[:] for g in after_grid]
     if best_treasure == 0:
         return False
     # for g in best_grid:
@@ -134,7 +134,7 @@ def in_range(r,c):
     
     
 
-for _ in range(2):
+for _ in range(k):
     if not search1():
         # print('search1')
         break

@@ -85,7 +85,7 @@ def fill():
 def search2():
     global best_grid, best_treasure, ans
     global wall_index
-    for _ in range(2):
+    while 1:
         fill()
 
         count_sum, best_grid = bfs(best_grid)
@@ -103,6 +103,7 @@ def bfs(new_grid):
     count_sum = 0
     for i in range(5):
         for j in range(5):
+            if new_grid[i][j] == 0: continue
             to_zero = []
             if not visited[i][j]:
                 now_num = new_grid[i][j]

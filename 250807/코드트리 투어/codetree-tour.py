@@ -82,7 +82,7 @@ class Travel_package:
 
     def __lt__(self, other):
         if self.revenue - self.cost != other.revenue - other.cost:
-            return -(self.revenue - self.cost) < -(other.revenue - other.cost)
+            return self.revenue - self.cost > other.revenue - other.cost
         if self.id != other.id:
             return self.id < other.id 
 
@@ -125,6 +125,7 @@ def change_start(remain):
     for package in packages:
         package.start = s
         package.change()
+    heapq.heapify(packages)
     
 
 
@@ -139,6 +140,8 @@ for _ in range(q):
     elif direction == 300:
         cancel_package(remain)
     elif direction == 400:
+        # for package in packages:
+        #     print(package.id, package.revenue, package.cost, end = ' // ')
         sell_best_package()
     elif direction == 500:
         # print(500)

@@ -1,7 +1,7 @@
 n = int(input())
 
 left = 0
-right = 10**9 + 1
+right = 10**9 *15
 
 
 def check(num):

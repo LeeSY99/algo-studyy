@@ -21,10 +21,10 @@ def dijkstra(start):
         if distance[now] < dist:
             continue
 
-        for i in graph[now]:
-            if dist + i[1] < distance[i[0]]:
-                distance[i[0]] = dist+i[1]
-                heapq.heappush(q, (dist+i[1], i[0]))
+        for v, weight in graph[now]:
+            if distance[now] + weight < distance[v]:
+                distance[v] = distance[now] + weight
+                heapq.heappush(q, (distance[now] + weight, v))
 
 dijkstra(1)
 for i in range(2,n+1):

@@ -41,11 +41,12 @@ def build_land(remain):
     info = remain[2:]
     graph = [[] for _ in range(n)]
 
-    for i in range(n):
+    for i in range(m):
         index = 3*i
         v, u, w = info[index], info[index+1], info[index+2]
         graph[v].append((u,w))
         graph[u].append((v,w))
+
     dist = dijkstra(0)
 
 def dijkstra(start):
@@ -134,6 +135,7 @@ for _ in range(q):
         build_land(remain)
     elif direction == 200:
         make_package(remain)
+        # print(f'dist:', *dist)
     elif direction == 300:
         cancel_package(remain)
     elif direction == 400:

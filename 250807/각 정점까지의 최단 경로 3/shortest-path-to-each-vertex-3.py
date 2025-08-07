@@ -28,5 +28,8 @@ def dijkstra(start):
 
 dijkstra(1)
 for i in range(2,n+1):
-    print(distance[i])
+    if distance[i] == sys.maxsize:
+        print(-1)
+    else:
+        print(distance[i])
 

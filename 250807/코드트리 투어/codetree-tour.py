@@ -35,6 +35,7 @@ import heapq, sys
 q = int(input())
 graph = [[]]
 packages = []
+package_info = {}
 dist = []
 def build_land(remain):
     global graph, dist
@@ -77,8 +78,6 @@ class Travel_package:
         self.revenue = revenue
         self.dest = dest
         self.cost = dist[self.dest]
-    
-    
 
     def __lt__(self, other):
         if self.revenue - self.cost != other.revenue - other.cost:
@@ -92,6 +91,7 @@ class Travel_package:
 def make_package(remain):
     id, revenue, dest = remain[0], remain[1], remain[2]
     package = Travel_package(id, revenue, dest)
+    package_info[id] = package
     heapq.heappush(packages, package)
     #########
     
@@ -99,33 +99,41 @@ def make_package(remain):
 def cancel_package(remain):
     global packages
     target_id = remain[0]
-    new_heap = [pkg for pkg in packages if pkg.id != target_id]
-    heapq.heapify(new_heap)
-    packages = new_heap
+    if target_id not in package_info:
+        return 
+    package_info.pop(target_id)
+    # new_heap = [pkg for pkg in packages if pkg.id != target_id]
+    # heapq.heapify(new_heap)
+    # packages = new_heap
 
 def sell_best_package():
-    
-    if not packages:
-        print(-1)
-        return
-    
-    for package in packages:
-        if package.revenue - package.cost >=0:
-            print(package.id)
-            packages.remove(package)
-            heapq.heapify(packages)
+    while packages:
+        now_package = heapq.heappop(packages)
+
+        if now_package.id not in package_info:
+            continue
+        
+        if now_package.revenue - now_package.cost < 0:
+            continue
+        else:
+            package_info.pop(now_package.id)
+            print(now_package.id)
             return
+
     print(-1)
-    return
 
 def change_start(remain):
-    global dist
+    global dist ,packages
     s = remain[0]
     dist = dijkstra(s)
-    for package in packages:
+    new_heap = []
+    for pid, package in package_info.items():
         package.start = s
         package.change()
+        new_heap.append(package)
+    packages = new_heap
     heapq.heapify(packages)
+    
     
 
 
@@ -136,16 +144,21 @@ for _ in range(q):
         build_land(remain)
     elif direction == 200:
         make_package(remain)
-        # print(f'dist:', *dist)
     elif direction == 300:
         cancel_package(remain)
     elif direction == 400:
+        # print('큐')
         # for package in packages:
+        #     print(package.id, package.revenue, package.cost, end = ' // ')
+        # print('---------------')
+        # print('dict')
+        # for package in package_info.values():
         #     print(package.id, package.revenue, package.cost, end = ' // ')
         sell_best_package()
     elif direction == 500:
         # print(500)
         change_start(remain)
+        # print(f'dist:', *dist)
 
     # print(f'{_+1}turn')
     # for package in packages:

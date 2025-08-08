@@ -10,4 +10,4 @@ for i in range(1,n+1):
         if i-num >=0:
             dp[i] += (dp[i-num]+1)
 
-print(dp[n]-dp[n-1])
+print((dp[n]-dp[n-1])%10007)

@@ -11,4 +11,5 @@ for i in range(1,m+1):
         dp[i] = min(dp[i], dp[i-coins[j]] + 1)
 
 # print(*dp)
-print(dp[m])
+ans = -1 if dp[m] == sys.maxsize else dp[m]
+print(ans)

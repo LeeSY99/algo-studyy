@@ -6,8 +6,8 @@ for _ in range(m):
     time.append(a)
 
 left = 1
-right = 10**9
-ans = 10**9
+right = 10**14
+ans = 10**14
 
 def check(mid):
     ps = 0

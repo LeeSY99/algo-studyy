@@ -8,29 +8,40 @@ for _ in range(n):
     value.append(v)
 
 
-#dp[i][j] i번 보석 고려 무게j -> 최대가치
-#1) i번 선택
-#2) i번 선택 x
+# #dp[i] : 지금까지의 합이 i일떄 얻을 수 있는 최대 가치
 
-dp = [[0] * (m+1) for _ in range(n+1)]
+# dp = [[0] * (m+1) for _ in range(n+1)]
 
-for i in range(1,n+1):
-    for j in range(1,m+1):
-        #1)
-        now_weight = j
-        count = 0
-        if j - weight[i] >= 0:
-            for count in range(1,m):
-                if j - weight[i]*count < 0:
-                    break
-                dp[i][j] = max(dp[i][j], dp[i-1][j - weight[i] * count] + value[i]*count, dp[i-1][j])
+# for i in range(1,n+1):
+#     for j in range(1,m+1):
+#         #1)
+#         now_weight = j
+#         count = 0
+#         if j - weight[i] >= 0:
+#             for count in range(1,m):
+#                 if j - weight[i]*count < 0:
+#                     break
+#                 dp[i][j] = max(dp[i][j], dp[i-1][j - weight[i] * count] + value[i]*count, dp[i-1][j])
             
-        else:
-            dp[i][j] = max(dp[i][j] , dp[i-1][j])
+#         else:
+#             dp[i][j] = max(dp[i][j] , dp[i-1][j])
 
+
+# ans = 0
+# for j in range(m+1):
+#     ans = max(ans, dp[n][j])
+
+# print(ans)
+
+dp = [0] * (m+1) #dp[i] 현재까지 합이 i일떄 얻는 최대 가치
+
+for i in range(1,m+1):
+    for j in range(1,n+1):
+        if i >= weight[j]:
+            dp[i] = max(dp[i], dp[i-weight[j]] + value[j])
 
 ans = 0
-for j in range(m+1):
-    ans = max(ans, dp[n][j])
+for i in range(m + 1):
+    ans = max(ans, dp[i])
 
 print(ans)

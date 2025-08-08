@@ -19,11 +19,12 @@ for i in range(1,n+1):
         #1)
         now_weight = j
         count = 0
-        if j - weight[i] > 0:
-            while now_weight >= 0:
-                dp[i][j] = max(dp[i][j], dp[i-count][now_weight] + value[i]*count, dp[i-1][j])
-                now_weight -= weight[i]
-                count+=1
+        if j - weight[i] >= 0:
+            for count in range(1,m):
+                if j - weight[i]*count < 0:
+                    break
+                dp[i][j] = max(dp[i][j], dp[i-1][j - weight[i] * count] + value[i]*count, dp[i-1][j])
+            
         else:
             dp[i][j] = max(dp[i][j] , dp[i-1][j])
 

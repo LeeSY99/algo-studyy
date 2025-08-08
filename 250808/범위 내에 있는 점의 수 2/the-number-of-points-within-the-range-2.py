@@ -15,7 +15,10 @@ for i in range(1,1000001):
 for _ in range(q):
     count = 0
     a,b = map(int, input().split())
-    count += prefix_sum[b]-prefix_sum[a-1]
+    if a == 0:
+        count += prefix_sum[b]
+    else:
+        count += prefix_sum[b]-prefix_sum[a-1]
         
     print(count)
     

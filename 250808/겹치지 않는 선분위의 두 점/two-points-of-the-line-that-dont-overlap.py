@@ -1,4 +1,3 @@
-import math
 n,m = map(int, input().split())
 
 points = []
@@ -13,10 +12,6 @@ ans = 0
 
 points.sort()
 
-total_points = 0
-for a, b in points:
-    total_points += (b-a + 1)
-
 def check(dist):
     placed = 0
     cur = -1
@@ -24,21 +19,18 @@ def check(dist):
     for a,b in points:
         if cur < a:
             cur = a
-        
         if cur > b:
             continue
 
-        k = (b-cur) // dist + 1
-        placed += k
-        if placed >=n:
-            return True
-
-        cur = cur + k * dist
+        while cur <=b:
+            placed += 1
+            if placed >= n:
+                return True   
+            cur = cur + dist
+         
     return False
 
 
-
-    
 
 while left <= right:
     mid = (left+right) // 2

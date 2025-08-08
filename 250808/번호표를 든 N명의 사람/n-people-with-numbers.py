@@ -14,16 +14,15 @@ for _ in range(n):
     time.append(d)
 
 
-def check(people):
+def check(k):
     q = []
-    for t in time:
-        heapq.heappush(q,t)
+    for i in range(k):
+        heapq.heappush(q, time[i])
 
-    for i in range(people, n):
+    for i in range(k,n):
         cur_time = heapq.heappop(q)
         heapq.heappush(q, cur_time + time[i])
 
-    
     end_time = 0
     while q:
         end_time = max(end_time, heapq.heappop(q))

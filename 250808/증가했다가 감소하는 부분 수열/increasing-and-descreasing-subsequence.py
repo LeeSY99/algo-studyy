@@ -5,9 +5,10 @@ num = list(map(int, input().split()))
 
 ''' dp[i][0] i번째 수에서 증가하고 잇음
     dp[i][1] i번째 수에서 감소하고 잇음'''
-dp = [[0,0] for _ in range(n)]
-dp[0][0] = 1
-dp[0][1] = 1
+dp = [[1,1] for _ in range(n)]
+
+# dp[0][0] = 1
+# dp[0][1] = 1
 # print(dp)
 
 for i in range(1,n):
@@ -19,6 +20,7 @@ for i in range(1,n):
 
 # for d in dp:
 #     print(*d)
+# print('-----------')
 
 ans = 0
 for d in dp:

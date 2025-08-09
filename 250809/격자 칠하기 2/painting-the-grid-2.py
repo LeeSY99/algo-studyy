@@ -5,7 +5,7 @@ grid = [list(map(int, input().split())) for _ in range(n)]
 drs, dcs = [0,1,0,-1],[1,0,-1,0]
 from collections import deque
 
-left = 1
+left = 0
 right = 1000000
 
 def in_range(r,c):

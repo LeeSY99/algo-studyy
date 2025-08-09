@@ -1,5 +1,5 @@
-n = int(input())
-arr = [0] + list(map(int, input().split()))
+# n = int(input())
+# arr = [0] + list(map(int, input().split()))
 
 ''' dp[i][j] = i번째 수까지 고려 j:i그룹의 합 -> a-b그룹 차이 최소
 1) i번쨰 수를 a에 넣음
@@ -8,23 +8,27 @@ dp[i][j] = dp[i-1][j-arr[i]] + arr[i]
 dp[i][j] = dp[i-1][j-arr[i]] - arr[i]
 
 
+---------------
+dp[i]: i번 쨰 원소 고려 a그룹의 합
+
 '''
 import sys
 
+n = int(input())
+arr = [0] + list(map(int, input().split()))
+
 m = sum(arr)
-dp = [[sys.maxsize] * (m+1) for _ in range(m)]
-dp[0][0] = 0
+INF = sys.maxsize
+dp_prev = [INF] * (m+1)
+dp_prev[0] = 0
 
-for i in range(1,n+1):
-    for j in range(1, m+1):
-        if j - arr[i] >= 0:
-            dp[i][j] = min(dp[i][j], dp[i-1][j-arr[i]] + arr[i])
-        dp[i][j] = min(dp[i][j], dp[i-1][j] - arr[i])
+for i in range(1, n+1):
+    dp_curr = [INF] * (m+1)
+    for j in range(m+1):
+        if dp_prev[j] != INF:
+            if j + arr[i] <= m:
+                dp_curr[j + arr[i]] = min(dp_curr[j + arr[i]], dp_prev[j] + arr[i])
+            dp_curr[j] = min(dp_curr[j], dp_prev[j] - arr[i])
+    dp_prev = dp_curr
 
-# print(dp[n])
-ans = 'No'
-for d in dp[n]:
-    if d == 0:
-        ans = 'Yes'
-
-print(ans)
+print("Yes" if 0 in dp_prev else "No")

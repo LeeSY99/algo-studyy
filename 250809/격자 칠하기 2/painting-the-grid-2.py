@@ -18,8 +18,10 @@ def check(d):
         for j in range(n):
             if visited[i][j]:
                 continue
-            colored = bfs(i,j,d,visited)
-            if colored >= (n*n + 1) //2:
+            count, visited = bfs(i,j,d,visited)
+            
+            if count >= (n*n + 1) //2:
+                # print(d,count)
                 return True
     return False
 
@@ -36,9 +38,9 @@ def bfs(r,c,d,visited):
                 q.append((nr,nc))
                 visited[nr][nc] = 1
                 count +=1
-    return count
+    return count, visited
         
-ans = n*n
+ans = 1000000
 while left<=right:
     mid = (left+right)//2
     if check(mid):

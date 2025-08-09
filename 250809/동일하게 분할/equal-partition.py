@@ -18,17 +18,22 @@ n = int(input())
 arr = [0] + list(map(int, input().split()))
 
 m = sum(arr)
-INF = sys.maxsize
-dp_prev = [INF] * (m+1)
-dp_prev[0] = 0
 
-for i in range(1, n+1):
-    dp_curr = [INF] * (m+1)
+dp = [[False] * (m+1) for _ in range(n+1)]
+
+dp[0][0] = True
+
+for i in range(1,n+1):
     for j in range(m+1):
-        if dp_prev[j] != INF:
-            if j + arr[i] <= m:
-                dp_curr[j + arr[i]] = min(dp_curr[j + arr[i]], dp_prev[j] + arr[i])
-            dp_curr[j] = min(dp_curr[j], dp_prev[j] - arr[i])
-    dp_prev = dp_curr
+        if j >= arr[i] and dp[i-1][j-arr[i]]:
+            dp[i][j] = True
 
-print("Yes" if 0 in dp_prev else "No")
+        if dp[i-1][j]:
+            dp[i][j] = True
+        
+if m%2 == 0 and dp[n][m//2]:
+    print('Yes')
+else:
+    print('No')
+
+

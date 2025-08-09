@@ -4,18 +4,16 @@ all_p = 1
 import heapq
 q = []
 for i in range(n):
-    heapq.heappush(q, -nums[i])
     if i<2:
         print(-1)
+        heapq.heappush(q, nums[i])
     else:
-        if len(q) > 3:
-            heapq.heappop(q)
-            
-        a,b,c = [-v for v in q]
+        heapq.heappush(q, nums[i])
+
+        a = heapq.heappop(q)
+        b = heapq.heappop(q)
+        c = heapq.heappop(q)
         print(a*b*c)
-
-
-    
-    
-
-    
+        heapq.heappush(q,a)
+        heapq.heappush(q,b)
+        heapq.heappush(q,c)

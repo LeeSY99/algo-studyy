@@ -14,7 +14,9 @@ ans = 0
 time = 0
 waiting = []
 
-heapq.heappush(waiting, people.pop(0))
+i = 0
+heapq.heappush(waiting, people[i])
+i += 1
 # print(people)
 
 while waiting:
@@ -26,11 +28,13 @@ while waiting:
     # print(f'{id} 입장, 대기{wait_time}, 퇴장시간{time}')
     
     
-    while people and people[0][1] <= time:
-        heapq.heappush(waiting, people.pop(0))
+    while i<n and people[i][1] <= time:
+        heapq.heappush(waiting,  people[i])
+        i += 1
 
-    if people and not waiting and people[0][1] > time:
-        heapq.heappush(waiting, people.pop(0))
+    if i<n and not waiting and people[i][1] > time:
+        heapq.heappush(waiting,  people[i])
+        i += 1
     # print(waiting)
 
 print(ans)

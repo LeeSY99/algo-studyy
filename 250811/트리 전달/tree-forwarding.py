@@ -4,6 +4,7 @@ i w -> i번 노드에서 점수 w획득,
 
 import sys
 sys.setrecursionlimit(100000)
+
 n, m = map(int, input().split())
 
 parent = [0] + list(map(int, input().split()))
@@ -25,7 +26,7 @@ def dfs(x):
         dfs(y)
 
 for _ in range(m):
-    i, w = map(int, input().split())
+    i, w = tuple(map(int, input().split()))
     dp[i] += w
 
 dfs(1)

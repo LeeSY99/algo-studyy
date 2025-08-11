@@ -3,7 +3,7 @@ graph = [[] for _ in range(n+1)]
 parent = [[] for _ in range(n+1)]
 visited = [False] * (n+1)
 import sys
-sys.limitrecursionlimit(100000)
+sys.setrecursionlimit(100000)
 
 for _ in range(n-1):
     a, b = map(int, input().split())

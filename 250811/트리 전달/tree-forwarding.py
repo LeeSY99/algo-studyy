@@ -2,7 +2,8 @@
 i w -> i번 노드에서 점수 w획득, 
         자식노드들을 c라하면 c w연산 수행 '''
 
-
+import sys
+sys.setrecursionlimit(100000)
 n, m = map(int, input().split())
 
 parent = [0] + list(map(int, input().split()))

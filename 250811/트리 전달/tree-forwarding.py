@@ -29,4 +29,5 @@ for _ in range(m):
     dp[i] += w
 
 dfs(1)
-print(*dp[1:])
+for i in range(1, n + 1):
+    print(dp[i], end=" ")

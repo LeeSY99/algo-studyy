@@ -2,6 +2,8 @@ n = int(input())
 graph = [[] for _ in range(n+1)]
 parent = [0] * (n + 1)
 visited = [False] * (n + 1)
+import sys
+sys.setrecursionlimit(100000)
 
 for _ in range(n-1):
     u, v = map(int, input().split())

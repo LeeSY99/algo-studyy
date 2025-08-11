@@ -5,18 +5,27 @@ i w -> i번 노드에서 점수 w획득,
 
 n, m = map(int, input().split())
 
-parent = list(map(int, input().split()))
+parent = [0] + list(map(int, input().split()))
+graph = [[] for _ in range(n + 1)]
+dp = [0] * (n + 1)
 
-score = [0] * (n+1)
-def calc(x, w):
-    score[x] += w
-    for idx, p in enumerate(parent,1):
-        if p == x:
-            calc(idx,w)
+for i in range(1,n+1):
+    x = parent[i]
+    y = i
 
+    if x == -1:
+        continue
+
+    graph[x].append(y)
+
+def dfs(x):
+    for y in graph[x]:
+        dp[y] += dp[x]
+        dfs(y)
 
 for _ in range(m):
     i, w = map(int, input().split())
-    calc(i,w)
-    
-print(*score[1:])
+    dp[i] += w
+
+dfs(1)
+print(*dp[1:])

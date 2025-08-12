@@ -82,7 +82,7 @@ def can_left(i,j):
     up = (i-1, j-1)
     left = (i, j-2)
     down = (i+1, j-1)
-    if in_range(left[0],left[1]) and not grid[up[0]][up[1]] and not grid[left[0]][left[1]] and not grid[down[0]][down[1]]:
+    if 0<left[1]<=c and not grid[up[0]][up[1]] and not grid[left[0]][left[1]] and not grid[down[0]][down[1]]:
         if can_down(i,j-1):
             return True
     return False
@@ -92,7 +92,7 @@ def can_right(i, j):
     right = (i, j+2)
     down = (i+1, j+1)
 
-    if in_range(right[0], right[1]) and not grid[up[0]][up[1]] and not grid[right[0]][right[1]] and not grid[down[0]][down[1]]:
+    if 0<right[1]<=c and not grid[up[0]][up[1]] and not grid[right[0]][right[1]] and not grid[down[0]][down[1]]:
         if can_down(i, j+1):
             return True
     return False

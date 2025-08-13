@@ -76,7 +76,7 @@ def cube_escape():
                 escape_2d_r, escape_2d_c = r, cube_start_c -1
                 escape_3d_face, escape_3d_r, escape_3d_c = WEST, M-1, r - cube_start_r
     if cube_start_c + M < N :
-        for r in range(cube_start_c,cube_start_c+M):
+        for r in range(cube_start_r,cube_start_r+M):
             if grid[r][cube_start_c + M] == 0:
                 escape_2d_r, escape_2d_c = r, cube_start_c + M
                 escape_3d_face, escape_3d_r, escape_3d_c = EAST, M-1, M -1 - (r-cube_start_r)
@@ -194,6 +194,7 @@ def escape_2d(start_time, st_r, st_c):
 
 
 escape_cube_time, st_2d_r, st_2d_c = cube_escape()
+# print(escape_cube_time)
 print(escape_2d(escape_cube_time, st_2d_r, st_2d_c))
 
 

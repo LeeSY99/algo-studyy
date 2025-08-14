@@ -19,7 +19,7 @@ for i in range(1,n+1):
    
 # for d in dp:
 #     print(*d)
-ans= 0
+ans= float('-inf')
 for i in range(1,n+1):
     for j in range(k+1):
         ans = max(ans, dp[i][j])

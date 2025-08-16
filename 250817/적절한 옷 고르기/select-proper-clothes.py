@@ -23,6 +23,7 @@ for j in range(n+1):
 
 for i in range(2,m+1):
     for j in range(1,n+1):
+        #i번째 날에 j번옷을 입음
         for k in range(1,n+1):
             #i-1번째 날에 k번 옷을 입은 경우
             #k번 옷이 i-1번째 날에 입을 수 있어야 함

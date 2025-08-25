@@ -14,24 +14,23 @@ dp = [[[float('-inf') for _ in range(2)] for _ in range(k+2)] for _ in range(n+1
 dp[0][0][0] = 0
 dp[0][1][1] = 0
 
-for i in range(1,n+1):
+for i in range(n):
     for j in range(k+1):
-        if dp[i-1][j][0] != float('-inf'): #직전에 왼쪽에 있었음
-            if a[i] == 'L': # 왼쪽에 떨어짐
-                dp[i][j][0] = max(dp[i][j][0], dp[i-1][j][0] + 1)
-                dp[i][j][1] = max(dp[i][j][1], dp[i-1][j-1][0])
-            else:   #오른쪽에 떨어짐
-                dp[i][j][1] = max(dp[i][j][1], dp[i-1][j-1][0] + 1)
-                dp[i][j][0] = max(dp[i][j][0], dp[i-1][j][0])
-        
-        if dp[i-1][j][1] != float('-inf'): #직전에 오른쪽에 있었음
-            if a[i] == 'L':
-                dp[i][j][0] = max(dp[i][j][0], dp[i-1][j-1][1] + 1)
-                dp[i][j][1] = max(dp[i][j][1], dp[i-1][j][1])
+        if dp[i][j][0] != float('-inf'): #현재위치 왼쪽
+            if a[i+1] == 'L':
+                dp[i+1][j][0] = max(dp[i+1][j][0], dp[i][j][0] + 1)
+                dp[i+1][j+1][1] = max(dp[i+1][j+1][1], dp[i][j][0])
             else:
-                dp[i][j][1] = max(dp[i][j][1], dp[i-1][j][1] + 1)
-                dp[i][j][0] = max(dp[i][j][0], dp[i-1][j-1][1])
-
+                dp[i+1][j][0] = max(dp[i+1][j][0], dp[i][j][0])
+                dp[i+1][j+1][1] = max(dp[i+1][j+1][1], dp[i][j][0] + 1)
+        
+        if dp[i][j][1] != float('-inf'): #현재위치 오른쪽
+            if a[i+1] == 'L':
+                dp[i+1][j+1][0] = max(dp[i+1][j+1][0], dp[i][j][1] + 1)
+                dp[i+1][j][1] = max(dp[i+1][j][1], dp[i][j][1])
+            else:
+                dp[i+1][j][1] = max(dp[i+1][j][1], dp[i][j][1] + 1)
+                dp[i+1][j+1][0] = max(dp[i+1][j+1][0], dp[i][j][1])
 ans = 0
 for j in range(k+1):
     ans = max(ans, dp[n][j][0], dp[n][j][1])

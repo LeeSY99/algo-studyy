@@ -6,7 +6,7 @@ num = [0] + list(map(int, input().split()))
 
 #dp[i][j] i번째 숫자까지 확인, j: 변경한 횟수, k가 마지막 사용 수 -> 유사도
 
-dp = [[[float('-inf')] * (n) for _ in range(5)] for _ in range(n+1)]
+dp = [[[float('-inf')] * (5) for _ in range(m+1)] for _ in range(n+1)]
 for k in range(1,5):
     if k == num[1]:
         dp[1][0][k] = 1

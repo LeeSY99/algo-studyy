@@ -11,10 +11,8 @@ for i in range(m):
             s1 = set()
             s2 = set()
             for l in range(n):
-                w1 = ''
-                w2 = ''
-                w1 += g1[l][i] + g1[l][j] + g1[l][k]
-                w2 += g2[l][i] + g2[l][j] + g2[l][k]
+                w1 = g1[l][i] + g1[l][j] + g1[l][k]
+                w2 = g2[l][i] + g2[l][j] + g2[l][k]
                 s1.add(w1)
                 s2.add(w2)
             flag = True

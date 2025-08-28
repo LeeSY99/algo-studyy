@@ -10,9 +10,6 @@ count = 0
 for i in range(n):
     for j in range(n):
         s = A[i] + B[j]
-        if -s in nums:
-            count += nums[-s]
-    
         if s in nums:
             nums[s] += 1
         else:
@@ -23,11 +20,6 @@ for i in range(n):
         s = C[i] + D[j]
         if -s in nums:
             count += nums[-s]
-    
-        if s in nums:
-            nums[s] += 1
-        else:
-            nums[s] = 1
 
-print(count//2)
+print(count)
         

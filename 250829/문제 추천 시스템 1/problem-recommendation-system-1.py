@@ -20,8 +20,9 @@ for _ in range(m):
     if cmd == 'ad':
         p, l = int(remain[0]), int(remain[1])
         idx = ss.bisect_left((l,p))
-        if ss[idx] == (l,p):
-            ss.remove((l,p))
+        if idx != len(ss):
+            if ss[idx] == (l,p):
+                ss.remove((l,p))
         ss.add((l,p))
     
     if cmd == 'sv':

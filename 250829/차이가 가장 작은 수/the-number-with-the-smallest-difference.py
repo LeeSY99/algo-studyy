@@ -1,8 +1,9 @@
 n,m = map(int, input().split())
 from sortedcontainers import SortedSet
 
-ss = SortedSet()
+
 arr = [int(input()) for _ in range(n)]
+ss = SortedSet(arr)
 
 ans = float('inf')
 for num in arr:

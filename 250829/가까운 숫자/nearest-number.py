@@ -4,12 +4,16 @@ ss = SortedSet([0])
 n = int(input())
 nums = list(map(int, input().split()))
 
+dist = float('inf')
 for num in nums:
     ss.add(num)
-    dist = float('inf')
-    for i in range(len(ss)-1):
-        num1 = ss[i]
-        num2 = ss[ss.bisect_right(num1)]
-        dist = min(dist, num2-num1)
+    
+    idx1 = ss.bisect_left(num) - 1
+    idx2 = ss.bisect_right(num)
+    if idx2 == len(ss):
+        dist = min(dist, num-ss[idx1])
+    else:
+        dist = min(dist, num-ss[idx1], ss[idx2]-num)
     print(dist)
+        
 

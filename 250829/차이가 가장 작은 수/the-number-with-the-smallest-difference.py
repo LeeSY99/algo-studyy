@@ -2,10 +2,10 @@ n,m = map(int, input().split())
 from sortedcontainers import SortedSet
 
 ss = SortedSet()
+arr = [int(input()) for _ in range(n)]
 
 ans = float('inf')
-for _ in range(n):
-    num = int(input())
+for num in arr:
     idx2 = ss.bisect_left(num+m)
     idx1 = ss.bisect_right((num-m)) - 1
 

@@ -1,9 +1,9 @@
 t = int(input())
 
 from sortedcontainers import SortedSet
-ss = SortedSet()
 
 for _ in range(t):
+    ss = SortedSet()
     k = int(input())
     for i in range(k):
         cmd, n = input().split()

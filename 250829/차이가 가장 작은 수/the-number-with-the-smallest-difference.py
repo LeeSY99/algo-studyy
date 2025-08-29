@@ -1,23 +1,23 @@
 n,m = map(int, input().split())
 from sortedcontainers import SortedSet
 
-ss = SortedSet()
+ss1 = SortedSet()
+ss2 = SortedSet()
 
 ans = float('inf')
 for _ in range(n):
     num = int(input())
-    idx2 = ss.bisect_right(num)
-    idx1 = idx2 - 1
+    idx2 = ss2.bisect_left(num+m)
+    idx1 = ss1.bisect_left(-(num-m))
 
-    if idx1 >= 0:
-        if num-ss[idx1] >= m:
-            ans = min(ans, num-ss[idx1])
+    if idx1 != len(ss1):
+        ans = min(ans, num + ss1[idx1])
 
-    if idx2 != len(ss):
-        if ss[idx2] - num >=m:
-            ans = min(ans, ss[idx2] - num)
+    if idx2 != len(ss2):
+        ans = min(ans, ss2[idx2] - num)
 
-    ss.add(num)
+    ss1.add(-num)
+    ss2.add(num)
 
 if ans == float('inf'):
     print(-1)

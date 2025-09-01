@@ -21,10 +21,14 @@ class Dlist:
             city.prev = self.tail
             self.tail = city
         
+        self.tail.next = self.head
+        self.head.prev = self.tail
         self.count += 1
 
     def delete_back(self,pin):
         target = pin.next
+        if pin == target:
+            return
         pin.next = target.next
         target.next.prev = pin
         target.next = None
@@ -36,6 +40,8 @@ class Dlist:
             pin.next = city
             city.prev = pin
             self.tail = city
+            self.tail.next = self.head
+            self.head.prev = self.tail
         
         else:
             pin.next.prev = city
@@ -59,17 +65,14 @@ for _ in range(Q):
     if cmd == '1':
         if pin.next:
             pin = pin.next
-        else:
-            pin = trip.head
     elif cmd == '2':
         if pin.prev:
             pin = pin.prev
-        else:
-            pin = trip.tail
 
     elif cmd == '3':
         if pin.next:
             trip.delete_back(pin)
+
 
     elif cmd == '4':
         new_city = City(r[0])

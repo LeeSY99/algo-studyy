@@ -27,21 +27,29 @@ class Dlist:
 
     def delete_back(self,pin):
         target = pin.next
-        if pin == target:
+        if self.count == 1:
             return
+        
+        if target == self.tail:
+            target.prev.next = None
+            self.tail = pin
+        elif target == self.head:
+            self.head = target.next
+
         pin.next = target.next
         target.next.prev = pin
+
         target.next = None
         target.prev = None
         self.count -= 1
+        self.head.prev = self.tail
+        self.tail.next = self.head
 
     def add_back_pin(self,pin,city):
         if pin == self.tail:
             pin.next = city
             city.prev = pin
             self.tail = city
-            self.tail.next = self.head
-            self.head.prev = self.tail
         
         else:
             pin.next.prev = city
@@ -49,6 +57,8 @@ class Dlist:
             pin.next = city
             city.prev = pin
         self.count += 1
+        self.tail.next = self.head
+        self.head.prev = self.tail
             
 
 

@@ -48,7 +48,7 @@ class LinkedList:
         self.tail.next = self.head
         self.head.prev = self.tail
 
-knight_list = [[] for _ in range(10**9+1)]
+knight_list = {}
 linked_knight_list = LinkedList()
 for k in knights:
     kn = Knight(k)

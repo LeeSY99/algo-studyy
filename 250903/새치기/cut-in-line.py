@@ -76,7 +76,7 @@ def cmd3(a,b,c):
     if a_node == head[line_num_a]:
         head[line_num_a] = b_node.next
     if b_node == tail[line_num_b]:
-        head[line_num_b] = a_node.prev
+        tail[line_num_b] = a_node.prev
     
     if a_node.prev is not None:
         a_node.prev.next = b_node.next

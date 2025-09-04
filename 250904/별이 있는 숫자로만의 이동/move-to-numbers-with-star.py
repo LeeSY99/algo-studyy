@@ -16,7 +16,7 @@ for i in range(1,n+1):
     for j in range(1,n+1):
         sum_all = 0
         for r in range(i-k, i+k+1):
-            c = k - abs(i-r)
+            c = k - abs(i-r) ##맨헤튼 거리 k에서 위로 간 만큼 뺴고 좌우로 갈 수 있음
             if 1<= r <=n:
                 sum_all += prefix_sum[r][min(j+c,n)] - prefix_sum[r][max(j-c-1, 0)]
 

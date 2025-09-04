@@ -9,7 +9,10 @@ points = [
     tuple(map(int, input().split()))
     for _ in range(n)
 ]
-
+queries = [
+    tuple(map(int, input().split()))
+    for _ in range(q)
+]
 for x, y in points:
     nums.add(x)
     nums.add(y)
@@ -31,8 +34,7 @@ for i in range(1,cnt + 1):
 def get_sum(x1,y1,x2,y2):
     return prefix_sum[x2][y2] - prefix_sum[x1-1][y2] - prefix_sum[x2][y1-1] + prefix_sum[x1-1][y1-1]
 
-for _ in range(q):
-    x1,y1,x2,y2 = map(int, input().split())
+for x1, y1, x2, y2 in queries:
     x1 = nums.bisect_left(x1)+1
     y1 = nums.bisect_left(y1)+1
     x2 = nums.bisect_right(x2)

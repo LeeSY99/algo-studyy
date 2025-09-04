@@ -9,7 +9,7 @@ b_sum = [[0]*(M+1) for _ in range(N+1)]
 c_sum = [[0]*(M+1) for _ in range(N+1)]
 
 for i in range(1,N+1):
-    for j in range(1,N+1):
+    for j in range(1,M+1):
         if grid[i][j] == 'a':
             a_sum[i][j] = a_sum[i-1][j] + a_sum[i][j-1] - a_sum[i-1][j-1] + 1
             b_sum[i][j] = b_sum[i-1][j] + b_sum[i][j-1] - b_sum[i-1][j-1]

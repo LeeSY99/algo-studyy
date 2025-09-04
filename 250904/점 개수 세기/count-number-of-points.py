@@ -3,9 +3,9 @@ n,q = map(int, input().split())
 
 points = list(map(int, input().split()))
 
-nums = SortedSet()
-for x in points:
-    nums.add(x)
+nums = SortedSet(points)
+# for x in points:
+#     nums.add(x)
 
 mapper = {}
 cnt = 1

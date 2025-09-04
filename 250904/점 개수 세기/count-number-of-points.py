@@ -6,7 +6,7 @@ points = list(map(int, input().split()))
 nums = SortedSet(points)
 # for x in points:
 #     nums.add(x)
-
+query = [tuple(map(int, input().split())) for _ in range(q)]
 mapper = {}
 cnt = 1
 for num in nums:
@@ -24,8 +24,7 @@ for i in range(1,cnt):
 def get_value(a,b):
     return prefix_sum[b]-prefix_sum[a-1]
 
-for _ in range(q):
-    a,b = map(int, input().split())
+for a, b in query:
     new_a = nums.bisect_left(a) + 1
     new_b = nums.bisect_right(b) 
     print(get_value(new_a, new_b))

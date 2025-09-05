@@ -3,7 +3,7 @@ n = int(input())
 points = [tuple(map(int, input().split())) for _ in range(n)]
 
 points.sort()
-print(points)
+# print(points)
 
 L = [0] * n
 R = [0] * n

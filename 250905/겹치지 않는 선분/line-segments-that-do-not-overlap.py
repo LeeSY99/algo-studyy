@@ -15,6 +15,16 @@ for i in range(n):
         if points[i][0] >= points[i-1][1] or points[i][1] > points[i-1][1]:
             L[i] = L[i-1] + 1
         else:
-            L[i] = max(0, L[i-1] - 1)
+            L[i] = L[i-1]
 
-print(L[n-1])
+for i in range(n-1,-1,-1):
+    if i == n-1:
+        R[i] = 1
+
+    else:
+        if points[i][1] <= points[i+1][0] or points[i][1] < points[i+1][1]:
+            R[i] = R[i+1] + 1
+        else:
+            R[i] = R[i+1]
+
+print((R[0] + L[0])//2)

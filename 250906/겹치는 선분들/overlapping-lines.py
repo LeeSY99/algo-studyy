@@ -22,7 +22,7 @@ seg_cnt = 0
 start = float('-inf')
 for x, v in points:
     seg_cnt += v
-    if seg_cnt >= 2:
+    if seg_cnt >= k:
         if start == float('-inf'):
             start = x
     else:

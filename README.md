@@ -5,6 +5,7 @@
 ## Array
 |  |
 | ------- |
+| [0051-n-queens](https://github.com/LeeSY99/algo-studyy/tree/master/0051-n-queens) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 ## Dynamic Programming
 |  |
@@ -13,5 +14,6 @@
 ## Backtracking
 |  |
 | ------- |
+| [0051-n-queens](https://github.com/LeeSY99/algo-studyy/tree/master/0051-n-queens) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 <!---LeetCode Topics End-->

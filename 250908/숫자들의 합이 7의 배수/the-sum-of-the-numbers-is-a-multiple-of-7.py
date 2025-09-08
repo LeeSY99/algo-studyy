@@ -1,6 +1,8 @@
 n = int(input())
 nums = [int(input()) for _ in range(n)]
-##나머지가 같으면 뺏을때 k의 배수가 된다
+##나머지가 같으면 뺏을때 k의 배수가 된다->
+## 그래서 prefix_sum에서 나머지가 m인 처음 나타난 인덱스와 가장 마지막에 나온 인덱스를
+## 구해서 빼면 구간이 나온다
 prefix = [0] * (n+1)
 for i in range(1, n+1):
     prefix[i] = (prefix[i-1] + nums[i-1]) % 7

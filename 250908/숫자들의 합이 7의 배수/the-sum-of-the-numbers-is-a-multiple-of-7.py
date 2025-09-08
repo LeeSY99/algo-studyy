@@ -1,6 +1,6 @@
 n = int(input())
 nums = [int(input()) for _ in range(n)]
-
+##나머지가 같으면 뺏을때 k의 배수가 된다
 prefix = [0] * (n+1)
 for i in range(1, n+1):
     prefix[i] = (prefix[i-1] + nums[i-1]) % 7

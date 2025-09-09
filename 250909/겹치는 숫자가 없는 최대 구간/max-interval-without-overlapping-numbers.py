@@ -10,9 +10,10 @@ for i in range(n):
         num_count[arr[j]] += 1
         j+=1
     
-    if j == n:
-        break
+    # if j == n:
+    #     break
 
+    # print(i,j)
     ans = max(ans, j-i)
     num_count[arr[i]] -= 1
 

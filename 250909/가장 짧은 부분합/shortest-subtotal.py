@@ -10,9 +10,11 @@ for i in range(N):
         sum_val += arr[j]
         j += 1
     
+    if j == N: break
     ans = min(ans, j-i+1)
     sum_val -= arr[i]
         
-
+if ans == float('inf'):
+    ans = -1
 print(ans)
 

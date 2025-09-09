@@ -6,12 +6,12 @@ ans = 0
 j = n-1
 
 for i in range(n):
-    while i<j and arr[i] + arr[j] >= k:
+    while i<j and arr[i] + arr[j] > k:
         j -= 1
 
     if i == j: break
 
-    ans += j-i+1
+    ans += j-i
     
 
 print(ans)

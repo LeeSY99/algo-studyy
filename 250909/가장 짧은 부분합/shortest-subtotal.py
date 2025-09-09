@@ -10,7 +10,7 @@ for i in range(N):
         sum_val += arr[j]
         j += 1
     
-    if j == N: break
+    if sum_val < S: break
     ans = min(ans, j-i+1)
     sum_val -= arr[i]
         

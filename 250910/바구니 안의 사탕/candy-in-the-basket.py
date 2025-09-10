@@ -4,16 +4,16 @@ for _ in range(n):
     a, x = map(int, input().split())
     candy[x] += a
 
-j = 2 * k
-sum_val = sum(candy[:j+1])
+sum_val = sum(candy[1: 1+k+k +1])
 ans = sum_val
-for i in range(1000001):
-    sum_val -= candy[i]
-    j += 1
+for c in range(2+k, 1000001 - k):
+    i = c-k
+    j = c+k
+    sum_val -= candy[i-1]
     sum_val += candy[j]
     ans = max(ans, sum_val)
-    if j == 100000:
-        break
+    
+
 
 print(ans)
 

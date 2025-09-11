@@ -1,22 +1,32 @@
+from sortedcontainers import SortedSet
 n, d = map(int, input().split())
 points = [tuple(map(int, input().split())) for _ in range(n)]
-points.sort(lambda x: (x[1],x[0]))
+points.sort()
+point_count = SortedSet()
 
-j = 1
-i=0
+def get_min():
+    if not point_count: return 0
+    return point_count[0][0]
+
+def get_max():
+    if not point_count: return 0
+    return point_count[-1][0]
+
+# j = 1
+j = 0
 ans = float('inf')
-# print(points)
-while j<n:
-    y1 = points[i][1]
-    y2 = points[j][1]
-
-    if abs(y2-y1) >= d:
-        ans = min(ans, abs(points[j][0] - points[i][0]))
+for i in range(n):
+    while j<n and get_max() - get_min() < d:
+        point_count.add((points[j][1], points[j][0]))
         j+=1
-    else:
-        i+=1
-        j=i+1
-    
+
+    if get_max() - get_min() < d:
+        break
+
+    ans = min(ans, points[j-1][0] - points[i][0])
+
+    point_count.remove((points[i][1], points[i][0]))
+
 if ans == float('inf'):
     ans = -1    
 

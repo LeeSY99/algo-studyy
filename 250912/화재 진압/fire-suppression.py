@@ -2,6 +2,8 @@ n,m = map(int, input().split())
 
 fire = list(map(int, input().split()))
 station = list(map(int, input().split()))
+fire.sort()
+station.sort()
 
 
 i = 0

@@ -3,21 +3,19 @@ n,m = map(int, input().split())
 fire = list(map(int, input().split()))
 station = list(map(int, input().split()))
 
-def can_go(i,j):
-    if i == 0:
-        return True
-    if abs(fire[i] - station[j]) < abs(fire[i-1]-station[j]):
-        return True
-    if j == m-1:
-        return True
-    return False
 
 i = 0
+j = 0
 ans = 0
-for j in range(m):
-    while i<n and can_go(i,j):
-        ans = max(ans, abs(fire[i] - station[j]))
-        i+=1
-    if i == n:
-        break
+def dist(i, j):
+    return abs(fire[i] - station[j])
+    
+for i in range(n):
+    while j<m-1 and dist(i,j) > dist(i,j+1):
+        j+=1
+    ans = max(ans, dist(i,j))
+
 print(ans)
+    
+
+

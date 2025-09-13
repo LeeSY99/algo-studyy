@@ -8,6 +8,7 @@
 | [0051-n-queens](https://github.com/LeeSY99/algo-studyy/tree/master/0051-n-queens) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
+| [3430-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3430-count-days-without-meetings) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -25,4 +26,8 @@
 |  |
 | ------- |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
+## Sorting
+|  |
+| ------- |
+| [3430-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3430-count-days-without-meetings) |
 <!---LeetCode Topics End-->

@@ -1,6 +1,7 @@
 n,m = map(int, input().split())
 pos = list(map(int, input().split()))
 lines = [tuple(map(int, input().split())) for _ in range(m)]
+pos.sort()
 
 def lower_bound(x):
     left = 0

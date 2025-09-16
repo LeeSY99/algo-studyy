@@ -19,11 +19,11 @@ def check(dist):
         a, b = points[i]
         if a > start:
             count += 1
-            start = a
-        while start + dist <= b:
+            start = a + dist
+        while start <= b:
             count += 1
             start = start + dist
-
+    # print(dist, count)
     return count >= n
 
 

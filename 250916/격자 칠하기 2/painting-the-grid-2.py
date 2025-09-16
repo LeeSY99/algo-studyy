@@ -27,7 +27,7 @@ def bfs(D, visited, r, c):
     q = deque()
     q.append((r,c))
     visited[r][c] = True
-    count = 0
+    count = 1
 
     while q:
         cr, cc = q.popleft()

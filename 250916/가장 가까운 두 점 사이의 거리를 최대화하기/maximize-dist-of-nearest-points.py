@@ -16,11 +16,11 @@ def check(dist):
     count = 0
 
     for a, b in lines:
-        while start + dist <= b:
+        if start + dist <= b:
             start = max(a, start+dist)
             count += 1
 
-    return count >= n
+    return count == n
 
 left = 1
 right = 10**9

@@ -24,14 +24,14 @@ def check(k):
     for i in range(n):
         if count == k:
             count -= 1
-            t, l_time = heapq.heappop(stage)
-            last_time = l_time + t
+            down_time = heapq.heappop(stage)
+            last_time = max(last_time, down_time)
         
-        heapq.heappush(stage, (time[i], last_time))
+        heapq.heappush(stage, (time[i] + last_time))
         count += 1
     while stage:
-        t, l_time = heapq.heappop(stage)
-        last_time = max(last_time, l_time + t)
+        down_time = heapq.heappop(stage)
+        last_time = max(last_time, down_time)
     return last_time <= t_max
 
 

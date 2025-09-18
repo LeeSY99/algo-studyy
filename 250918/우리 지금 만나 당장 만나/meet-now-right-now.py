@@ -13,6 +13,8 @@ def check(time):
     for i in range(1, n):
         if live[i] - speed[i] * time > max_x or live[i] + speed[i] * time < min_x:
             return False
+        min_x = max(min_x, live[i] - speed[i] * time)
+        max_x = min(max_x, live[i] + speed[i] * time)
     return True
 
 

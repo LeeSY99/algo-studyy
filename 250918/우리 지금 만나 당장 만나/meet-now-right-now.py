@@ -2,25 +2,26 @@ n = int(input())
 live = list(map(int, input().split()))
 speed = list(map(int, input().split()))
 
-left = 1
+left = 0
 right = 10**9
 ans = float('inf')
 
-def check(p):
+def check(time):
     max_time = 0
-    for i in range(n):
-        dist = abs(live[i] - p)
-        go_time = dist / float(speed[i])
-        max_time = max(max_time , go_time)
+    min_x = live[0] - speed[0] * time
+    max_x = live[0] + speed[0] * time
+    for i in range(1, n):
+        if live[i] - speed[i] * time > max_x or live[i] + speed[i] * time < min_x:
+            return False
+    return True
 
-    return max_time < ans
 
-while left <= right:
-    mid = (left + right) // 2
+for i in range(100):
+    mid = (left + right) / 2
     if check(mid):
-        right = mid - 1
-        ans = mid
+        right = mid
+        ans = min(ans, mid)
     else:
-        left = mid + 1
+        left = mid
 
 print(f'{ans:.4f}')

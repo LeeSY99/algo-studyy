@@ -6,37 +6,29 @@ left = 0
 right = len(B)-1
 
 def check(m):
-    new_A = A[:]
+    removed = [False] * len(A)
     for i in range(m):
-        new_A[order[i]] = None
-    new_str = ''
-    for i in range(m+1):
-        if new_A[i] == None:
+        removed[order[i]-1] = True
+    
+    i = 0
+    for j in range(len(A)):
+        if removed[j]:
             continue
-        new_str += new_A[i]
-
-    if len(new_str) < len(B):
-        return False
-    
-    i = j = 0
-    while j<len(new_str) and i<len(B):
-        if B[i] == new_str[j]:
+        if i < len(B) and A[j] == B[i]:
             i+=1
-        j+=1
-    if i == len(B):
-        return True
-    return False
-    
-  
+            if i == len(B):
+                return True
+    return i == len(B)
+
 ans =0      
 
 while left <= right:
     mid = (left+ right) // 2
     if check(mid):
-        right = mid - 1
-    else:
+        ans = mid+1
         left = mid + 1
-    ans = max(ans, mid+1)
+    else:
+        right = mid - 1
 
 print(ans)
         

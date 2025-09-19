@@ -7,7 +7,7 @@ right = len(B)-1
 
 def check(m):
     new_A = A[:]
-    for i in range(m+1):
+    for i in range(m):
         new_A[order[i]] = None
     new_str = ''
     for i in range(m+1):
@@ -22,7 +22,6 @@ def check(m):
     while j<len(new_str) and i<len(B):
         if B[i] == new_str[j]:
             i+=1
-            cnt+=1
         j+=1
     if i == len(B):
         return True

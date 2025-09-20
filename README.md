@@ -6,12 +6,14 @@
 |  |
 | ------- |
 | [0051-n-queens](https://github.com/LeeSY99/algo-studyy/tree/master/0051-n-queens) |
+| [0064-minimum-path-sum](https://github.com/LeeSY99/algo-studyy/tree/master/0064-minimum-path-sum) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 | [3430-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3430-count-days-without-meetings) |
 ## Dynamic Programming
 |  |
 | ------- |
+| [0064-minimum-path-sum](https://github.com/LeeSY99/algo-studyy/tree/master/0064-minimum-path-sum) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 ## Backtracking
 |  |
@@ -42,4 +44,8 @@
 |  |
 | ------- |
 | [0129-sum-root-to-leaf-numbers](https://github.com/LeeSY99/algo-studyy/tree/master/0129-sum-root-to-leaf-numbers) |
+## Matrix
+|  |
+| ------- |
+| [0064-minimum-path-sum](https://github.com/LeeSY99/algo-studyy/tree/master/0064-minimum-path-sum) |
 <!---LeetCode Topics End-->

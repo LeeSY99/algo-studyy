@@ -10,8 +10,6 @@ def compare(x,y):
 
 arr.sort(key = cmp_to_key(compare))
 
-ans = ''
-for a in arr:
-    ans += a
+ans = ''.join(arr)
 
 print(ans)

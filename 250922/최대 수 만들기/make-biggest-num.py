@@ -2,9 +2,9 @@ from functools import cmp_to_key
 n = int(input())
 arr = [input() for _ in range(n)]
 def compare(x,y):
-    if int(x)* 10**len(y) + int(y) > int(y) *  10**len(x) + int(x):
+    if int(x+y) > int(y+x):
         return -1
-    if int(x)* 10**len(y) + int(y) < int(y) *  10**len(x) + int(x):
+    if int(x+y) < int(y+x):
         return 1
     return 0
 

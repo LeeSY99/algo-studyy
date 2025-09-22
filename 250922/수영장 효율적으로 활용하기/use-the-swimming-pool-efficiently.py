@@ -7,30 +7,25 @@ ans = float('inf')
 
 def check(t):
     lane_count = 1
-    j = 0
-    max_time = 0
     lane_time = 0
-    while j < n:
-        if lane_time + time[j] <= t:
-            lane_time += time[j]
-        else:
-            max_time = max(max_time, lane_time)
+    for i in range(n):
+        if time[i] > t:
+            return False
+        if lane_time + time[i] > t:
             lane_count += 1
-            lane_time = time[j]
-        j+=1
-    max_time = max(max_time, lane_time)
+            lane_time = time[i]
+        else:
+            lane_time += time[i]
 
-    return lane_count <= m, max_time
-
-
+    return lane_count <= m
 
 
 while left <= right:
     mid = (left + right) // 2
-    result, max_time = check(mid)
-    if result:
+    
+    if check(mid):
         right = mid - 1
-        ans = min(ans, max_time)
+        ans = min(ans, mid)
     else:
         left = mid + 1
 

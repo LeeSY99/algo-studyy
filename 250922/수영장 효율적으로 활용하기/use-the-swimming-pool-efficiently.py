@@ -20,16 +20,17 @@ def check(t):
         j+=1
     max_time = max(max_time, lane_time)
 
-    return lane_count <= m
+    return lane_count <= m, max_time
 
 
 
 
 while left <= right:
     mid = (left + right) // 2
-    if check(mid):
+    result, max_time = check(mid)
+    if result:
         right = mid - 1
-        ans = min(ans, mid)
+        ans = min(ans, max_time)
     else:
         left = mid + 1
 

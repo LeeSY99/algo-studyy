@@ -18,11 +18,11 @@ while left <= right:
     ans = max(ans, ly+ry)
 
     if lx < rx:
-        nums[right] = (ry, rx-lx)
+        arr[right] = (ry, rx-lx)
         left += 1
 
     elif lx > rx:
-        nums[left] = (ly, lx-rx)
+        arr[left] = (ly, lx-rx)
         right -=1
     
     else:

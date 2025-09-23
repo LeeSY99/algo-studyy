@@ -3,12 +3,30 @@ n = int(input())
 arr = []
 for _ in range(n):
     x,y = map(int, input().split())
-    arr += [y]*x
+    arr.append((y, x))
 
 arr.sort()
-ans = float('inf')
-for i in range(len(arr)//2):
-    ans = min(ans, arr[-1-i] + arr[i])
+left = 0
+right = n-1
+ans = 0
 
-# print(arr)
+
+while left <= right:
+    ly, lx = arr[left]
+    ry, rx = arr[right]
+
+    ans = max(ans, ly+ry)
+
+    if lx < rx:
+        nums[right] = (ry, rx-lx)
+        left += 1
+
+    elif lx > rx:
+        nums[left] = (ly, lx-rx)
+        right -=1
+    
+    else:
+        left+=1
+        right-=1
+
 print(ans)

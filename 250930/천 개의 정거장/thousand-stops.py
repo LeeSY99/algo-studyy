@@ -30,7 +30,8 @@ def dijkstra(start):
             else:
                 next_cost = now_cost
 
-            if next_cost < costs[next_stop][next_line_no]:
+            if next_cost < costs[next_stop][next_line_no] or \
+                (next_cost == costs[next_stop][next_line_no] and now_time + 1 < time[next_stop][next_line_no]):
                 costs[next_stop][next_line_no] = next_cost
                 time[next_stop][next_line_no] = now_time + 1
                 heapq.heappush(q, (next_cost, now_time+1, next_stop, next_line_no))

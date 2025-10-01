@@ -25,9 +25,21 @@ def dijkstra(start):
                 dist[next_node] = next_d
                 heapq.heappush(q, (next_d, next_node))
 
-    return min(dist[a], dist[b], dist[c])
+    min_dist = INF
+    for i in range(1,n+1):
+        if i == start:
+            continue
+        min_dist = min(min_dist, dist[i])
+    return dist
+
 
 ans = 0
-for i in range(1, n+1):
-    ans = max(ans, dijkstra(i))
+
+dist_a = dijkstra(a)
+dist_b = dijkstra(b)
+dist_c = dijkstra(c)
+
+for i in range(1,n+1):
+    ans = max(ans, min(dist_a[i], dist_b[i], dist_c[i]))
+# print(dijkstra(a),dijkstra(b),dijkstra(c))
 print(ans)

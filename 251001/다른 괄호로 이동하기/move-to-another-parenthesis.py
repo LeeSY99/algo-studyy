@@ -1,6 +1,7 @@
 n,a,b = map(int, input().split())
 grid = [list(input()) for _ in range(n)]
-graph = [[[] for _ in range(n)] for _ in range(n)]
+graph = [[[] for _ in range(n)] for _ in range(n)]  
+
 drs, dcs = [0,1,0,-1],[-1,0,1,0]
 def in_range(i,j):
     return 0<=i<n and 0<=j<n
@@ -19,10 +20,10 @@ for r in range(n):
 INF = float('inf')
 import heapq
 
-def dijkstra():
+def dijkstra(r,c):
     dist = [[INF]*n for _ in range(n)]
-    dist[0][0] = 0
-    q = [(0, 0, 0)] # 거리 r c 순서
+    dist[r][c] = 0
+    q = [(0, r, c)] # 거리 r c 순서
 
     while q:
         now_d, now_r, now_c = heapq.heappop(q)
@@ -36,6 +37,14 @@ def dijkstra():
                 dist[next_r][next_c] = next_d
                 heapq.heappush(q, (next_d, next_r, next_c))
     
-    return dist[n-1][n-1]
+    
+    return dist
 
-print(dijkstra())
+ans = 0
+for r in range(n):
+    for c in range(n):
+        dist = dijkstra(r,c)
+        for er in range(n):
+            for ec in range(n):
+                ans = max(ans, dist[er][ec])
+print(ans)

@@ -28,12 +28,12 @@ def dijkstra():
         for next_node, l, c in graph[now_node]:
             new_b = b + l
             new_a = min(a, c)
-            # print(now_node, new_a, new_b)
             next_d = get_dist(new_a,new_b)
             if next_d < dist[next_node]:
+                # print(f'{now_node}->{next_node}  a = {new_a} b = {new_b} dist = {next_d}')
                 dist[next_node] = next_d
                 heapq.heappush(q, (next_d, next_node, new_a, new_b))
-    return dist[n]
+    return int(dist[n])
     # return dist
 
 print(dijkstra())

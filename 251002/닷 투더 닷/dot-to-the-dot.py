@@ -4,39 +4,44 @@ B -> 모든 선분의 L값
 import heapq
 n,m,x = map(int, input().split())
 graph = [[] for _ in range(n+1)] 
-
+c_list = []
 for _ in range(m):
     s, e, l, c = map(int, input().split())
     graph[s].append((e,l,c))
     graph[e].append((s,l,c))
+    c_list.append(c)
 
 def get_dist(a,b):
     return b + x / a
 
-def dijkstra():
+def dijkstra(c_limit):
     dist = [float('inf')] * (n+1)
     dist[1] = 0
     a = float('inf')
-    q = [(0, 1, float('inf'), 0)] # dist, node, A, B
+    q = [(0, 1)] # dist, node
 
     while q:
-        now_d, now_node, a, b = heapq.heappop(q)
+        now_d, now_node = heapq.heappop(q)
 
         if now_d != dist[now_node]:
             continue
 
         for next_node, l, c in graph[now_node]:
-            new_b = b + l
-            new_a = min(a, c)
-            next_d = get_dist(new_a,new_b)
+            if c < c_limit:
+                continue
+            next_d = now_d + l
             if next_d < dist[next_node]:
-                # print(f'{now_node}->{next_node}  a = {new_a} b = {new_b} dist = {next_d}')
                 dist[next_node] = next_d
-                heapq.heappush(q, (next_d, next_node, new_a, new_b))
-    return int(dist[n])
-    # return dist
+                heapq.heappush(q, (next_d, next_node))
+    
+    return dist
 
-print(dijkstra())
+ans = float('inf')
+for c_limit in c_list:
+    dist = dijkstra(c_limit)
+    ans = min(ans, dist[n] + x/c_limit)
+
+print(int(ans))
 
 
         

@@ -1,13 +1,15 @@
 n,m,x = map(int, input().split())
 import heapq
 graph = [[] for _ in range(n+1)]
-
+r_graph = [[] for _ in range(n+1)]
+edges = []
 for _ in range(m):
     u,v,w = map(int, input().split())
     graph[u].append((v,w))
+    r_graph[v].append((u,w))
 
 INF = float('inf')
-def dijkstra(start):
+def dijkstra(start, graph):
     dist = [INF]*(n+1)
     dist[start] = 0
     q = [(0,start)]
@@ -27,12 +29,14 @@ def dijkstra(start):
     return dist
 
 ans = 0
-distx = dijkstra(x)
+# x -> i
+dist_to_i = dijkstra(x, graph)
+# i -> x
+dist_to_x = dijkstra(x, r_graph)
 for i in range(1,n+1):
     if i == x:
         continue
-    dist = dijkstra(i)
-    ans = max(ans, dist[x] + distx[i])
+    ans = max(ans, dist_to_i[i] + dist_to_x[i])
 print(ans)
 
 ## 다른 풀이

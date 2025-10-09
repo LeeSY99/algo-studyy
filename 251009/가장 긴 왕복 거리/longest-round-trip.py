@@ -34,3 +34,9 @@ for i in range(1,n+1):
     dist = dijkstra(i)
     ans = max(ans, dist[x] + distx[i])
 print(ans)
+
+## 다른 풀이
+## x -> i 다익스트라 1번
+## i -> x 간선 뒤집어서 다익스트라 1번
+## dist1[i] + dist[i]
+## 인접 리스트로 풀기

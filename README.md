@@ -7,6 +7,7 @@
 | ------- |
 | [0051-n-queens](https://github.com/LeeSY99/algo-studyy/tree/master/0051-n-queens) |
 | [0064-minimum-path-sum](https://github.com/LeeSY99/algo-studyy/tree/master/0064-minimum-path-sum) |
+| [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 | [3430-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3430-count-days-without-meetings) |
@@ -23,6 +24,7 @@
 ## Hash Table
 |  |
 | ------- |
+| [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Counting
 |  |
@@ -31,6 +33,7 @@
 ## Sorting
 |  |
 | ------- |
+| [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3430-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3430-count-days-without-meetings) |
 ## Tree
 |  |
@@ -48,4 +51,8 @@
 |  |
 | ------- |
 | [0064-minimum-path-sum](https://github.com/LeeSY99/algo-studyy/tree/master/0064-minimum-path-sum) |
+## String
+|  |
+| ------- |
+| [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 <!---LeetCode Topics End-->

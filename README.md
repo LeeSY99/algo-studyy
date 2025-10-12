@@ -7,6 +7,7 @@
 | ------- |
 | [0051-n-queens](https://github.com/LeeSY99/algo-studyy/tree/master/0051-n-queens) |
 | [0064-minimum-path-sum](https://github.com/LeeSY99/algo-studyy/tree/master/0064-minimum-path-sum) |
+| [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 | [1972-rotating-the-box](https://github.com/LeeSY99/algo-studyy/tree/master/1972-rotating-the-box) |
@@ -25,6 +26,7 @@
 ## Hash Table
 |  |
 | ------- |
+| [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Counting
@@ -61,4 +63,16 @@
 |  |
 | ------- |
 | [1972-rotating-the-box](https://github.com/LeeSY99/algo-studyy/tree/master/1972-rotating-the-box) |
+## Math
+|  |
+| ------- |
+| [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
+## Geometry
+|  |
+| ------- |
+| [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
+## Line Sweep
+|  |
+| ------- |
+| [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
 <!---LeetCode Topics End-->

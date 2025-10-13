@@ -8,10 +8,10 @@ for _ in range(m):
 
 import heapq
 
-def dijkstra():
+def dijkstra(start):
     dist = [float('inf')] * (n+1)
-    dist[1] = 0
-    q = [(0,1)]
+    dist[start] = 0
+    q = [(0,start)]
     # path = [0]*(n+1)
 
     while q:
@@ -30,29 +30,30 @@ def dijkstra():
 
     return dist
 
-dist_A = dijkstra()
-x = n
+dist_A = dijkstra(n)
+x = 1
 path_A = [x]
-while x != 1:
+# print(dist_A)
+while x != n:
     for i in range(1, n+1):
         if graph[i][x] == 0:
             continue
         
         if dist_A[i] + graph[i][x] == dist_A[x]:
             x = i
-            break
-    
+            break    
     path_A.append(x)
-path_A = path_A[::-1]
 
+# path_A = path_A[::-1]
+# print(path_A)
 for i in range(len(path_A)-1):
     x = path_A[i]
     y = path_A[i+1]
     graph[x][y] = 0
     graph[y][x] = 0
 
-dist_B = dijkstra()
-ans = dist_B[n]
+dist_B = dijkstra(n)
+ans = dist_B[1]
 if ans == float('inf'):
     ans = -1
 

@@ -6,6 +6,8 @@ for _ in range(m):
     u,v, w1, w2 = map(int, input().split())
     graph_a[u].append((v,w1))
     graph_b[u].append((v,w2))
+    # graph_a[u].sort(key = lambda x: x[1])
+    # graph_b[u].sort(key = lambda x: x[1])
 
 import heapq
 
@@ -47,29 +49,37 @@ while x != 1:
 # print(vertices_b)
 
 warning_a = 0
-for i in range(len(vertices_a)-1,0,-1):
-    u = vertices_a[i]
-    v = vertices_a[i-1]
-    short = float('inf')
-    short_node = []
-    for next_node, weight in graph_b[u]:
-        if weight < short:
-            short = weight
-            short_node.append(next_node)
-    if v not in short_node:
-        warning_a += 1
-
-warning_b = 0
-for i in range(len(vertices_b)-1,0,-1):
+for i in range(len(vertices_b)-1, 0, -1):
     u = vertices_b[i]
     v = vertices_b[i-1]
+
     short = float('inf')
-    short_node = []
     for next_node, weight in graph_a[u]:
         if weight < short:
             short = weight
-            short_node.append(next_node)
-    if v not in short_node:
+    ok = False
+    for next_node, weight in graph_a[u]:
+        if (next_node, weight) == (v, short):
+            ok = True
+    if not ok:
+        warning_a += 1
+
+warning_b = 0
+for i in range(len(vertices_a)-1, 0, -1):
+    u = vertices_a[i]
+    v = vertices_a[i-1]
+
+    short = float('inf')
+    for next_node, weight in graph_b[u]:
+        if weight < short:
+            short = weight
+    ok = False
+    for next_node, weight in graph_b[u]:
+        if (next_node, weight) == (v, short):
+            ok = True
+    if not ok:
         warning_b += 1
 
+
+# print(warning_a, warning_b)
 print(min(warning_a, warning_b))

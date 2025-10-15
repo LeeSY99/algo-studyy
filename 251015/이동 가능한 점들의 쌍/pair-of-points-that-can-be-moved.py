@@ -26,7 +26,7 @@ for _ in range(q):
     if dist_ij == float('inf'):
         continue
     cnt+=1
-    cost += dist[i][j]
+    cost += dist_ij
 
 print(cnt)
 print(cost)

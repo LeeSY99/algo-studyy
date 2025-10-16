@@ -2,6 +2,8 @@ n = int(input())
 edges =[[] for _ in range(n + 1)]
 visited = [False] * (n + 1)
 dist = [0] * (n + 1)
+import sys
+sys.setrecursionlimit(100000)
 
 for _ in range(n - 1):
     x, y, d = tuple(map(int, input().split()))

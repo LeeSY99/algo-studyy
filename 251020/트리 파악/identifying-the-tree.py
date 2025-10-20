@@ -7,8 +7,8 @@ for _ in range(n-1):
     edges[u].append(v)
     edges[v].append(u)
 
-marker = []
 def dfs(x, depth):
+    global ans
     cnt = 0
     for y in edges[x]:
         if not visited[y]:
@@ -16,12 +16,10 @@ def dfs(x, depth):
             cnt += 1
             dfs(y,depth + 1)
     if cnt == 0:
-        marker.append((x, depth))
+        ans += depth
+
 visited = [False] * (n+1)
 visited[1] = True
-dfs(1,0)
-
 ans = 0
-for _, depth in marker:
-    ans += depth
+dfs(1,0)
 print(ans%2)

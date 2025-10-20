@@ -1,6 +1,7 @@
 n = int(input())
 edges = [[] for _ in range(n+1)]
-
+import sys
+sys.setrecursionlimit(100000)
 for _ in range(n-1):
     u,v = map(int, input().split())
     edges[u].append(v)

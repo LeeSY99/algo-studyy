@@ -18,16 +18,19 @@ def search(start, x):
             search(start,y)
 
 visited = [False] * (n+1)
+visited[1] = True
 search(1, 1)
 fatherest = 0
 fatherest_node = 0
 for i in range(1,n+1):
     if dist[1][i] > fatherest:
         fatherest_node = i
+        fatherest = dist[1][i]
 
 visited = [False] * (n+1)
-dist = [[0] * (n+1) for _ in range(n+1)]
+visited[fatherest_node] = 1
 search(fatherest_node, fatherest_node)
 ans = max(dist[fatherest_node])
+# print(dist[fatherest_node])
 print(ans)
 

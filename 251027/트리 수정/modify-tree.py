@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(2000)
 n = int(input())
 graph = [[] for _ in range(n)]
 removed = [[False]*n for _ in range(n)]

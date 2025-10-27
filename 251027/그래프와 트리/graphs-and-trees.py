@@ -10,6 +10,7 @@ for _ in range(m):
 visited = [False] * (n+1)
 
 def dfs(x):
+    visited[x] = True
     q = deque([(x,0)]) #(현재, 부모)
     while q:
         u,p = q.popleft()
@@ -20,7 +21,6 @@ def dfs(x):
             elif v != p:
                 return True
     return False
-
 
 
 ans = 0

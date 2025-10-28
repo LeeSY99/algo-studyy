@@ -24,18 +24,18 @@ def drop_ball(root):
     while True:
         path.append(x)
         l, r = left[x], right[x]
-
+        ## 자식 0개
         if l == -1 and r == -1:
             ball[x] += 1
             break
-        
+        ## 자식 1개
         if l == -1:
             x = r
             continue
         if r == -1:
             x = l
             continue
-        
+        ## 자식 2개
         if sub_ball[l] <= sub_ball[r]:
             x = l
         else:

@@ -15,11 +15,17 @@ for _ in range(n):
     else:
         node = nodes[n]
     if l != '.':
-        left = Node(l)
+        if l not in nodes:
+            left = Node(l)
+        else:
+            left = nodes[l]
         node.left = left
         nodes[l] = left
     if r != '.':
-        right = Node(r)
+        if r not in nodes:
+            right = Node(r)
+        else:
+            right = nodes[r]
         node.right = right
         nodes[r] = right
 

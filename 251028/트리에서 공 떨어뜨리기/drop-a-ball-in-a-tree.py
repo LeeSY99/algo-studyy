@@ -45,7 +45,7 @@ def drop_ball(root):
     return x
 
 last_pos = -1
-for i in range(n):
+for i in range(k):
     last_pos = drop_ball(1)
 print(last_pos)
 

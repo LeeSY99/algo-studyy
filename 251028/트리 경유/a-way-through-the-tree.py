@@ -1,15 +1,17 @@
 n,q = map(int, input().split())
-visited = {}
+visited = [False] * (2**20+1)
+# print(2**20)
 
 def search(x):
     start = x
     v = []
-    while x != 1:
-        x = x//2
-        if x in visited:
-            v.append(x)
+    while start != 1:
+        if visited[start]:
+            v.append(start)
+        start = start//2
+    
     if not v:
-        visited[start] = True
+        visited[x] = True
         return 0
     else:
         v.sort()

@@ -17,17 +17,16 @@ for i in range(1,n+1):
 
 k = int(input())
 
-def drop_ball(root):
+def drop_ball(root,k):
     x = root
-    path = []
 
     while True:
-        path.append(x)
+        sub_ball[x] += 1
         l, r = left[x], right[x]
         ## 자식 0개
         if l == -1 and r == -1:
             ball[x] += 1
-            break
+            return x
         ## 자식 1개
         if l == -1:
             x = r
@@ -36,16 +35,16 @@ def drop_ball(root):
             x = l
             continue
         ## 자식 2개
-        if sub_ball[l] <= sub_ball[r]:
+        if k%2 == 1:
             x = l
+            k = (k+1)//2
         else:
             x = r
-    for u in path:
-        sub_ball[u] += 1
-    return x
+            k = k//2
+        
+    
 
-last_pos = -1
-for i in range(k):
-    last_pos = drop_ball(1)
+
+last_pos = drop_ball(1, k)
 print(last_pos)
 

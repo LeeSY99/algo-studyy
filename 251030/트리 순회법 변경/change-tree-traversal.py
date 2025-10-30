@@ -20,10 +20,10 @@ def build(left, right):
     while idx < n and pre_order[idx] < root:
         idx += 1
     
-    if idx != left + 1:
-        build(left+1, idx-1)
-    if idx <= n:
-        build(idx, right)
+    # if idx != left + 1:
+    build(left+1, idx-1)
+    # if idx <= n:
+    build(idx, right)
     # post_order.append(root)
     print(root)
 

@@ -41,11 +41,11 @@ def get_ans(x, p):
         get_ans(y,x)
         size2[x] += size2[y]
 
-get_ans(cent,0)
+get_ans(cent,parent[cent])
 
 max_size = 0
 min_size = 100000
-cent_sub = [size2[v] for v in graph[cent] if v != 0]
+cent_sub = [size2[v] for v in graph[cent] if v != parent[cent]]
 # print(cent_sub)
 if not cent_sub:
     print(0)

@@ -8,32 +8,27 @@ for _ in range(n-1):
     graph[b].append(a)
 
 colored = [False] * (n+1)
+#가장 먼 리프노드 까지의 거리
 dist = [0] * (n+1)
 visited = [False]*(n+1)
 
-def dfs(x, f):
-    dist[x] = f
+def dfs(x):
     visited[x] = True
     for y in graph[x]:
         if visited[y]: continue
-        dfs(y, f+1)
+        dfs(y)
+        dist[x] = max(dist[x], 1+dist[y])
 
-dfs(s, 0)
+dfs(s)
 # print(dist)
 
-visited = [False]*(n+1)
-# ans = 0
-# def search(x, f):
-#     visited[x] = True
-#     for y in graph[x]:
-#         if visited[y]: continue
-#         dist[y] -= 1
-ans = max(dist)-d
-if ans <= 0:
-    print(0)
-else:
-    print(2*ans)
-
+ans = 0
+for i in range(1, n+1):
+    if i == s:
+        continue
+    if dist[i] >= d:
+        ans += 1
+print(2*ans)
 
     
 

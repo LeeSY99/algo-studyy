@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(10000)
 n = int(input())
 nums = [0] + list(map(int, input().split()))
 

@@ -1,5 +1,7 @@
 n = int(input())
 node = [0] + list(map(int, input().split()))
+import sys
+sys.setrecursionlimit(10000)
 
 graph = [[] for _ in range(n+1)]
 for _ in range(n-1):

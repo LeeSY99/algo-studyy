@@ -13,11 +13,11 @@ for node in a:
 
 def dfs(x):
     visited[x] = True
-    if x in a:
-        dp[x][1] = 0
-    else:
-        dp[x][1] = 1
-    dp[x][0] = 0 if x not in a else float('inf')
+    must_pick = (x in a)
+
+    dp[x][1] = 0 if must_pick else 1
+    dp[x][0] = float('inf') if must_pick else 0
+
     for y in graph[x]:
         if visited[y]: continue
         dfs(y)

@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(1000000)
 n,m = map(int, input().split())
 graph = [[] for _ in range(n+1)]
 for _ in range(n-1):
@@ -6,7 +8,7 @@ for _ in range(n-1):
     graph[b].append(a)
 
 a = list(map(int, input().split()))
-
+a = set(a)
 dp = [[0]*2 for _ in range(n+1)]
 for node in a:
     dp[node][1] += 1

@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(50000)
 n = int(input())
 graph = [[] for _ in range(n+1)]
 for _ in range(n-1):
@@ -13,6 +15,7 @@ def dfs(x):
         parent[0][y] = x
         dfs(y)
 def lca(a,b):
+    #### 높이 맞추기
     if depth[a] < depth[b]:
         return lca(b,a)
     for h in range(MAX_H,-1,-1):
@@ -20,13 +23,15 @@ def lca(a,b):
             a = parent[h][a]
     if a==b:
         return a
-    
+
+    ### 조상 맞추기
     for h in range(MAX_H,-1,-1):
         if parent[h][a] != parent[h][b]:
             a = parent[h][a]
             b = parent[h][b]
     
     return parent[0][a]
+
     
 
 MAX_H = 16
@@ -36,7 +41,7 @@ visited = [False] * (n+1)
 
 dfs(1)
 
-for h in range(1, MAX_H + 1):
+for h in range(1, MAX_H+1):
     for i in range(1, n+1):
         parent[h][i] = parent[h-1][parent[h-1][i]]
 

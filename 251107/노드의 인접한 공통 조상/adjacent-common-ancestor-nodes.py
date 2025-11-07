@@ -6,7 +6,6 @@ parent = [0] * (n+1)
 for _ in range(n-1):
     a,b = map(int, input().split())
     graph[a].append(b)
-    graph[b].append(a)
     parent[b] = a
 
 for i in range(1,n+1):
@@ -15,13 +14,9 @@ for i in range(1,n+1):
         break
 a,b = map(int, input().split())
 depth = [0] * (n+1)
-visited = [False] * (n+1)
-
 
 def dfs(x):
-    visited[x] = True
     for y in graph[x]:
-        if visited[y]: continue
         depth[y] = depth[x] +1
         dfs(y)
 

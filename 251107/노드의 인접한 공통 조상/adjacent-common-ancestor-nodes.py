@@ -23,7 +23,6 @@ def dfs(x):
     for y in graph[x]:
         if visited[y]: continue
         depth[y] = depth[x] +1
-        parent[y] = x
         dfs(y)
 
 def get_lca(a,b):

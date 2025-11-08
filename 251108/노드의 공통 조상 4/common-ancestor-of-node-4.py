@@ -11,16 +11,38 @@ def dfs(x):
     visited[x] = True
     for y in graph[x]:
         if visited[y]: continue
-        parent[y] = x
+        parent[0][y] = x
         depth[y] = depth[x] + 1
         dfs(y)
-MAX_H = int(math.log(100000,2)) + 1
-print(MAX_H)
+
+def lca(a,b):
+    if depth[a] < depth[b]:
+        return lca(b,a)
+    for h in range(MAX_H, -1, -1):
+        if depth[a] - depth[b] >= (1<<h):
+            a = parent[h][a]
+    if a==b:
+        return a
+    for h in range(MAX_H, -1, -1):
+        if parent[h][a] != parent[h][b]:
+            a = parent[h][a]
+            b = parent[h][b]
+    return parent[0][a]
+    
+MAX_H = int(math.log(50000,2)) + 1
+# print(MAX_H)
 visited = [False] * (n+1)
-parent = [[0] * (n+1) for _ in range(MAX_H)]  
+parent = [[0] * (n+1) for _ in range(MAX_H+1)]  
 depth = [0] * (n+1)
+dfs(1)
+
 
 q = int(input())
 
+for h in range(1, MAX_H+1):
+    for i in range(1,n+1):
+        parent[h][i] = parent[h-1][parent[h-1][i]]
+
 for _ in range(q):
     a,b = map(int, input().split())
+    print(lca(a,b))

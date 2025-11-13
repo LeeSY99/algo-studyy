@@ -6,7 +6,7 @@ parent = [i for i in range(n+1)]
 def union(a,b):
     A = find(a)
     B = find(b)
-    parent[A] = b
+    parent[A] = B
 
 def find(x):
     if parent[x] == x:
@@ -20,4 +20,4 @@ for _ in range(m):
     if cmd == 0:
         union(a,b)
     elif cmd == 1:
-        print(int(parent[a] == parent[b]))
+        print(int(find(a) == find(b)))

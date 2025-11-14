@@ -21,7 +21,10 @@ for _ in range(m):
     else:
         union(a,b)
 
-parent = set(parent)
-# print(parent)
-count += len(parent) - 2
+
+for i in range(2,n+1):
+    if find(1) != find(i):
+        union(1, i)
+        count+= 1
+
 print(count)

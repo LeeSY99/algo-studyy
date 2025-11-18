@@ -18,7 +18,7 @@ def union(a,b):
     A = find(a)
     B = find(b)
     if A==B: return 
-    if size[B] < size[B]:
+    if size[A] < size[B]:
         A,B = B,A
     parent[B]=A
     size[A] += size[B]

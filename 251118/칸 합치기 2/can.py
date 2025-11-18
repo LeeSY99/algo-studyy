@@ -2,17 +2,7 @@ n,m = map(int, input().split())
 import sys
 sys.setrecursionlimit(100000)
 parent = [i for i in range(n+1)]
-nxt = [i for i in range(n + 2)]
-visited = [False] * (n+1)
-comp_cnt = n 
-
-def union(a,b):
-    global comp_cnt
-    A = find(a)
-    B = find(b)
-    if A == B: return
-    parent[A] = B
-    comp_cnt -= 1
+ans = n
 
 def find(x):
     if parent[x] == x:
@@ -20,19 +10,20 @@ def find(x):
     parent[x] = find(parent[x])
     return parent[x]
 
-def get_next(x):
-    if nxt[x] == x:
-        return x
-    nxt[x] = get_next(nxt[x])
-    return nxt[x]
+
 
 for _ in range(m):
     a,b = map(int, input().split())
 
-    i = get_next(a)
-    while i<b:
-        union(i, i+1)
-        nxt[i] = get_next(i+1)
-        i = nxt[i]
-    print(comp_cnt)
+    while True:
+        a = find(a)
+
+        if a>=b:
+            break
+        
+        parent[a] = a+1
+        a = a+1
+        ans -= 1
+    
+    print(ans)
     

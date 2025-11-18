@@ -5,7 +5,7 @@ nums = [0] + list(map(int, input().split()))
 def union(a,b):
     A = find(a)
     B = find(b)
-
+    if A==B: return
     if nums[A] < nums[B]:
         A,B = B,A
     parent[A] = B
@@ -21,21 +21,22 @@ for _ in range(m):
     a,b = map(int, input().split())
     union(a,b)
 
-start = find(1)
-cost = 0
+visited = [False] * (n+1)
+cost_list = []
 for i in range(1,n+1):
     I = find(i)
-    if I == start:
+    if visited[I]:
         continue
-    # print(parent)
-    # print(start, I)
-    # print('------------')
-    union(start, I)
-    cost += (nums[start] + nums[I])
-    start = find(1)
+    visited[I] = True
+    cost_list.append(nums[I])
 
+cost_list.sort()
 
-if cost > k:
+ans = 0
+for i in range(1, len(cost_list)):
+    ans += cost_list[0] + cost_list[i]
+
+if ans > k:
     print('NO')
 else:
-    print(cost)
+    print(ans)

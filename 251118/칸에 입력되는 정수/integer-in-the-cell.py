@@ -8,6 +8,7 @@ def find(x):
     parent[x] = find(parent[x])
     return parent[x]
 
+ans = m
 parent = [i for i in range(n+1)]
 for i in range(1, m+1):
     a = int(input())

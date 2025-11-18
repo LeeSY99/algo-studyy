@@ -1,5 +1,6 @@
 n,m = map(int, input().split())
-
+import sys
+sys.setrecursionlimit(100000)
 parent = [i for i in range(n+1)]
 nxt = [i for i in range(n + 2)]
 visited = [False] * (n+1)

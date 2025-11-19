@@ -27,6 +27,9 @@ for a,b,v in edges:
         continue
     union(a,b)
     ans += v
-
-
+# print(uf)
+for i in range(1, n):
+    if find(i) != find(i+1):
+        ans = -1
+        break
 print(ans)

@@ -23,12 +23,12 @@ ans = 0
 
 cnt = n
 for a,b,v in edges:
+    if cnt == 2:
+        break
     if find(a) == find(b):
         continue
     union(a,b)
     cnt -= 1
     ans += v
-    if cnt == 2:
-        break
 
 print(ans)

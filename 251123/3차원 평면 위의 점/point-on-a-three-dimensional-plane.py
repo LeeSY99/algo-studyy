@@ -1,45 +1,57 @@
 n = int(input())
-points = [tuple(list(map(int, input().split()))) for _ in range(n)]
-points.sort()
+points = []
+
+for idx in range(n):
+    x, y, z = map(int, input().split())
+    # (x, y, z, 원래 인덱스)
+    points.append((x, y, z, idx))
 
 uf = [i for i in range(n)]
-def union(a,b):
+
+def find(x):
+    if uf[x] == x:
+        return x
+    uf[x] = find(uf[x])
+    return uf[x]
+
+def union(a, b):
     A = find(a)
     B = find(b)
     if A == B:
         return
     uf[A] = B
 
-def find(x):
-    if uf[x] ==x:
-        return x
-    uf[x] = find(uf[x])
-    return uf[x]
-
 edges = []
-def push(i, j):
-    x1,y1,z1 = points[i]
-    x2,y2,z2 = points[j]
-    dist = min(abs(x1-x2), abs(y1-y2), abs(z1-z2))
-    edges.append((i,j,dist))
 
+def push(i, j):
+    x1, y1, z1, id1 = points[i]
+    x2, y2, z2, id2 = points[j]
+    dist = min(abs(x1-x2), abs(y1-y2), abs(z1-z2))
+    # 간선은 "원래 인덱스 id1, id2" 기준으로 저장
+    edges.append((id1, id2, dist))
+
+# x 기준
 points.sort(key=lambda x: x[0])
 for i in range(n-1):
-    push(i,i+1)
+    push(i, i+1)
 
+# y 기준
 points.sort(key=lambda x: x[1])
 for i in range(n-1):
-    push(i,i+1)
+    push(i, i+1)
 
-points.sort(key=lambda x:x[2])
+# z 기준
+points.sort(key=lambda x: x[2])
 for i in range(n-1):
-    push(i,i+1)
+    push(i, i+1)
 
-edges.sort(key = lambda x: x[2])
+edges.sort(key=lambda x: x[2])
+
 ans = 0
-for i, j, dist in edges:
-    if find(i) == find(j):
+for a, b, dist in edges:
+    if find(a) == find(b):
         continue
+    union(a, b)
     ans += dist
-    union(i,j)
+
 print(ans)

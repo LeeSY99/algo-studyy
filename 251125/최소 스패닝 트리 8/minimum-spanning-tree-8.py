@@ -9,26 +9,26 @@ for _ in range(m):
     graph[b].append((a,v))
 
 def prim(start):
-    dist = [float('inf')] * (n+1)
-    dist[start] = 0
+    visited = [False] * (n + 1)
     q=[]
     q.append((0,start))
+    total_cost = 0
 
     while q:
-        now_d, now_node = heapq.heappop(q)
+        w, now_node = heapq.heappop(q)
 
-        if dist[now_node] != now_d:
+        if visited[now_node]:
             continue
 
+        visited[now_node] = True
+        total_cost += w
+
         for next_node, weight in graph[now_node]:
-            next_d = now_d + weight
-            if dist[next_node] > next_d:
-                dist[next_node] = next_d
-                heapq.heappush(q, (next_d, next_node))
+            if not visited[next_node]:
+                heapq.heappush(q, (weight, next_node))
+    return total_cost
 
-    return dist
-
-print(max(prim(1)[1:]))
+print(prim(1))
 
     
 

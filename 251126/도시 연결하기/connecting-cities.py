@@ -67,12 +67,12 @@ for i in range(n):
             get_dist(i,j)
 
 ans = 0
-dist = [float('inf')] * (n+1)
+dist = [float('inf')] * (city_num)
 dist[1] = 0
-visited = [False] * (n+1)
-for i in range(1,n+1):
+visited = [False] * (city_num)
+for i in range(1,city_num):
     min_index = -1
-    for j in range(1,n+1):
+    for j in range(1,city_num):
         if visited[j]: continue
         if min_index == -1 or dist[min_index]>dist[j]:
             min_index = j
@@ -80,7 +80,7 @@ for i in range(1,n+1):
     visited[min_index] = True
     ans += dist[min_index]
 
-    for j in range(1,n+1):
+    for j in range(1,city_num):
         if graph[min_index][j] == float('inf'):
             continue
         dist[j] = min(dist[j], graph[min_index][j])

@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(40000)
 n,m = map(int, input().split())
 graph = [[] for _ in range(n+1)]
 

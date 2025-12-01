@@ -14,6 +14,7 @@ dist[1] = 0
 q = [(0, 1)]
 visited = [False] * (n+1)
 cost = 0
+mst_edges = []
 mst_graph = [[] for _ in range(n+1)]
 dist_from = [0] * (n+1)
 
@@ -26,7 +27,7 @@ while q:
     cost += now_d
 
     if now_node != 1:
-        mst_graph.append((min(dist_from[now_node], now_node),
+        mst_edges.append((min(dist_from[now_node], now_node),
         max(dist_from[now_node], now_node),dist[now_node]))
 
     for next_node, next_d in graph[now_node]:
@@ -41,7 +42,7 @@ print(cost)
 def dfs(x):
     global last_node, max_dist
     visited[x] = True
-    for y, d in graph[x]:
+    for y, d in mst_graph[x]:
         if visited[y]: continue
         dist[y] = dist[x] + d
         if dist[y] > max_dist:
@@ -49,6 +50,10 @@ def dfs(x):
             last_node = y
         dfs(y)
 
+for x, y, d in mst_edges:
+    mst_graph[x].append((y, d))
+    mst_graph[y].append((x, d))
+    
 max_dist = 0
 visited = [False] * (n+1)
 dist = [0]* (n+1)

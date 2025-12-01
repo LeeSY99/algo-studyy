@@ -29,7 +29,7 @@ def prim():
             if dist[next_node] > next_d:
                 dist[next_node] = next_d
                 heapq.heappush(q, (next_d, next_node))
-    return cost,dist
+    return cost
 
 if prim() > k:
     print(0)

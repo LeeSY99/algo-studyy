@@ -27,6 +27,7 @@ while q:
             heapq.heappush(q,y)
             tree.setdefault(x, []).append(y)
 
+root.sort()
 for r in root:
     children = sorted(tree.get(r, []))
     print(r, len(children), *children)

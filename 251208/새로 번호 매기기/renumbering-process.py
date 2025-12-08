@@ -5,26 +5,27 @@ indegree = [0] * (n+1)
 
 for _ in range(m):
     x,y = map(int, input().split())
-    graph[x].append(y)
-    indegree[y] += 1
+    graph[y].append(x)
+    indegree[x] += 1
 
 import heapq
 q = []
 for i in range(1, n+1):
     if indegree[i] == 0:
-        heapq.heappush(q, i)
+        heapq.heappush(q, -i)
+
 visited = [False] * (n+1)
-idx =1
+idx =n
 while q:
-    x = heapq.heappop(q)
+    x = -heapq.heappop(q)
     visited[x] = True
-    ans[idx] = x
-    idx += 1
+    ans[x] = idx
+    idx -= 1
 
     for y in graph[x]:
         indegree[y] -= 1
         if indegree[y] == 0:
-            heapq.heappush(q, y)
+            heapq.heappush(q, -y)
 
 is_cycle=False  
 for i in range(1, n+1):
@@ -34,10 +35,6 @@ for i in range(1, n+1):
 if is_cycle:
     print(-1)
 else:
-
-    result = {}
-    for i in range(1,n+1):
-        result[ans[i]] = i
-
-    for i in range(1,n+1):
-        print(result[i], end = ' ')
+    # print(ans)
+    for i in range(1, n+1):
+        print(ans[i], end = ' ')

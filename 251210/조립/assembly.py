@@ -33,6 +33,6 @@ while q:
 # for d in dp:
 #     print(*d)
 for i in range(1, n+1):
-    if is_mini[i]:
+    if is_mini[i] and dp[n][i] != 0:
         print(i, dp[n][i])
 

@@ -20,9 +20,8 @@ while q:
     x = heapq.heappop(q)
     for y in graph[x]:
         indegree[y] -= 1
-        dp[y] += 1
+        dp[y] = (dp[y] + dp[x]) % A
         if indegree[y] == 0:
-            dp[y] = max(dp[x], dp[y]) % A
             
             heapq.heappush(q, y)
 

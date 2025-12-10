@@ -22,20 +22,17 @@ for i in range(1, n+1):
 while q:
     x = heapq.heappop(q)
     for y in graph[x]:
-        # count[y] += 1
-        # print(x,y)
         indegree[y] -= 1
-        # print(dp[x], dp[y])
-        if dp[y] == dp[x]:
-            count[y] += 1
-        else:
+        if dp[x] > dp[y]:
+            dp[y] = dp[x]
             count[y] = 1
-        dp[y] = max(dp[y], dp[x])
+        elif dp[x] == dp[y]:
+            count[y] += 1
 
         # print(count[y])
         # print('---')
         if indegree[y] == 0:
-            if count[y] > 1:
+            if count[y] >= 2:
                 dp[y] +=1
             heapq.heappush(q, y)
 

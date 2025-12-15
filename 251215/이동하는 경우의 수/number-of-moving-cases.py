@@ -30,9 +30,22 @@ while q:
             q.append(y)
 
 ans = 0
+q = deque()
+q.append(n)
+visited = [False] * (n+1)
+visited[n] = True
+
+while q:
+    y = q.popleft()
+    for x in parent[y]:
+        ans += 1
+        if not visited[x]:
+            visited[x] = True
+            q.append(x)
+
 # print(parent)
-for p in parent:
-    ans += len(p)
+
 print(dist[n], ans)
+
 
 

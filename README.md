@@ -5,6 +5,7 @@
 ## Array
 |  |
 | ------- |
+| [0048-rotate-image](https://github.com/LeeSY99/algo-studyy/tree/master/0048-rotate-image) |
 | [0051-n-queens](https://github.com/LeeSY99/algo-studyy/tree/master/0051-n-queens) |
 | [0064-minimum-path-sum](https://github.com/LeeSY99/algo-studyy/tree/master/0064-minimum-path-sum) |
 | [0128-longest-consecutive-sequence](https://github.com/LeeSY99/algo-studyy/tree/master/0128-longest-consecutive-sequence) |
@@ -58,6 +59,7 @@
 ## Matrix
 |  |
 | ------- |
+| [0048-rotate-image](https://github.com/LeeSY99/algo-studyy/tree/master/0048-rotate-image) |
 | [0064-minimum-path-sum](https://github.com/LeeSY99/algo-studyy/tree/master/0064-minimum-path-sum) |
 | [1972-rotating-the-box](https://github.com/LeeSY99/algo-studyy/tree/master/1972-rotating-the-box) |
 ## String
@@ -71,6 +73,7 @@
 ## Math
 |  |
 | ------- |
+| [0048-rotate-image](https://github.com/LeeSY99/algo-studyy/tree/master/0048-rotate-image) |
 | [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
 ## Geometry
 |  |

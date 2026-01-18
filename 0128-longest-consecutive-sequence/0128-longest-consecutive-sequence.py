@@ -1,25 +1,15 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        num = {}
+        s = set(nums)
         ans = 0
 
-        for n in nums:
-            if n not in num:
-                lenth = 1
-                left = n
-                right = n
-
-                if n-1 in num:
-                    lenth += num[n-1]
-                    left = n - num[n-1]
-                if n+1 in num:
-                    lenth += num[n+1]
-                    right = n + num[n+1]
-
-                num[n] = lenth
-                num[left] = lenth
-                num[right] = lenth
-                ans = max(ans, lenth)
+        for x in s:
+            if x - 1 not in s:      # 연속 구간의 시작점
+                cur = x
+                length = 1
+                while cur + 1 in s:
+                    cur += 1
+                    length += 1
+                ans = max(ans, length)
         return ans
-
         

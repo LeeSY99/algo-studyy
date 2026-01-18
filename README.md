@@ -91,4 +91,8 @@
 |  |
 | ------- |
 | [0128-longest-consecutive-sequence](https://github.com/LeeSY99/algo-studyy/tree/master/0128-longest-consecutive-sequence) |
+## Union-Find
+|  |
+| ------- |
+| [0128-longest-consecutive-sequence](https://github.com/LeeSY99/algo-studyy/tree/master/0128-longest-consecutive-sequence) |
 <!---LeetCode Topics End-->

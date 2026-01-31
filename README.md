@@ -48,11 +48,13 @@
 | ------- |
 | [0129-sum-root-to-leaf-numbers](https://github.com/LeeSY99/algo-studyy/tree/master/0129-sum-root-to-leaf-numbers) |
 | [0199-binary-tree-right-side-view](https://github.com/LeeSY99/algo-studyy/tree/master/0199-binary-tree-right-side-view) |
+| [0341-flatten-nested-list-iterator](https://github.com/LeeSY99/algo-studyy/tree/master/0341-flatten-nested-list-iterator) |
 ## Depth-First Search
 |  |
 | ------- |
 | [0129-sum-root-to-leaf-numbers](https://github.com/LeeSY99/algo-studyy/tree/master/0129-sum-root-to-leaf-numbers) |
 | [0199-binary-tree-right-side-view](https://github.com/LeeSY99/algo-studyy/tree/master/0199-binary-tree-right-side-view) |
+| [0341-flatten-nested-list-iterator](https://github.com/LeeSY99/algo-studyy/tree/master/0341-flatten-nested-list-iterator) |
 ## Binary Tree
 |  |
 | ------- |
@@ -105,6 +107,7 @@
 | ------- |
 | [0208-implement-trie-prefix-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0208-implement-trie-prefix-tree) |
 | [0295-find-median-from-data-stream](https://github.com/LeeSY99/algo-studyy/tree/master/0295-find-median-from-data-stream) |
+| [0341-flatten-nested-list-iterator](https://github.com/LeeSY99/algo-studyy/tree/master/0341-flatten-nested-list-iterator) |
 ## Trie
 |  |
 | ------- |
@@ -120,9 +123,18 @@
 ## Stack
 |  |
 | ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/LeeSY99/algo-studyy/tree/master/0341-flatten-nested-list-iterator) |
 | [0394-decode-string](https://github.com/LeeSY99/algo-studyy/tree/master/0394-decode-string) |
 ## Recursion
 |  |
 | ------- |
 | [0394-decode-string](https://github.com/LeeSY99/algo-studyy/tree/master/0394-decode-string) |
+## Queue
+|  |
+| ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/LeeSY99/algo-studyy/tree/master/0341-flatten-nested-list-iterator) |
+## Iterator
+|  |
+| ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/LeeSY99/algo-studyy/tree/master/0341-flatten-nested-list-iterator) |
 <!---LeetCode Topics End-->

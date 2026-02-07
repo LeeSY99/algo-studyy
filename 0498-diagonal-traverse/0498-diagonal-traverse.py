@@ -1,24 +1,22 @@
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        result = []
+        ans = []
         n = len(mat)
         m = len(mat[0])
         max_val = n-1 + m-1
 
-        for s in range(max_val + 1):
-            if s % 2 == 0:
-                for i in range(min(n-1, s),-1, -1):
-                    j = s - i
-                    if j >= m:
-                        break
-                    print(s,i,j)
-                    result.append(mat[i][j])
-            else:
-                for j in range(min(m-1, s),-1,-1):
-                    i = s-j
-                    if i >= n:
-                        break
-                    print(s,i,j)
-                    result.append(mat[i][j])
-        return result
+        for d in range(max_val + 1):
+            diag = []
+            r_start = max(0, d - m + 1)
+            r_end = min(n-1, d)
+
+            for r in range(r_start, r_end + 1):
+                c = d-r
+                diag.append(mat[r][c])
+
+            if d%2 == 0:
+                diag.reverse()
+            ans.extend(diag)
+
+        return ans
         

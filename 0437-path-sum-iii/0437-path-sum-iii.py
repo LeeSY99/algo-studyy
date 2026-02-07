@@ -7,25 +7,24 @@
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
         ans = 0
-        if not root:
-            return ans
+        prefix = defaultdict(int)
+        prefix[0] = 1
+        ans = 0
 
-        def calc(node, now_sum):
+        def dfs(node, cur):
+            nonlocal ans
             if not node:
-                return 0
-            now_sum += node.val
-            res = 0
-            if now_sum == targetSum:
-                res = 1
-            res += calc(node.left, now_sum)
-            res += calc(node.right, now_sum)
-            return res
+                return
 
-        def dfs(node):
-            if not node:
-                return 0
-            return calc(node,0) + dfs(node.left) + dfs(node.right)
+            cur += node.val
+            ans += prefix[cur - targetSum]
 
-        return dfs(root)
+            prefix[cur] += 1
+            dfs(node.left, cur)
+            dfs(node.right, cur)
+            prefix[cur] -= 1
+
+        dfs(root, 0)
+        return ans
 
         

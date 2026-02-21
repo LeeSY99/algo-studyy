@@ -37,6 +37,7 @@
 | [0208-implement-trie-prefix-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0208-implement-trie-prefix-tree) |
 | [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
 | [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |
+| [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Counting
@@ -47,6 +48,7 @@
 |  |
 | ------- |
 | [0295-find-median-from-data-stream](https://github.com/LeeSY99/algo-studyy/tree/master/0295-find-median-from-data-stream) |
+| [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3430-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3430-count-days-without-meetings) |
 ## Tree
@@ -57,6 +59,7 @@
 | [0341-flatten-nested-list-iterator](https://github.com/LeeSY99/algo-studyy/tree/master/0341-flatten-nested-list-iterator) |
 | [0437-path-sum-iii](https://github.com/LeeSY99/algo-studyy/tree/master/0437-path-sum-iii) |
 | [0938-range-sum-of-bst](https://github.com/LeeSY99/algo-studyy/tree/master/0938-range-sum-of-bst) |
+| [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -66,6 +69,7 @@
 | [0437-path-sum-iii](https://github.com/LeeSY99/algo-studyy/tree/master/0437-path-sum-iii) |
 | [0827-making-a-large-island](https://github.com/LeeSY99/algo-studyy/tree/master/0827-making-a-large-island) |
 | [0938-range-sum-of-bst](https://github.com/LeeSY99/algo-studyy/tree/master/0938-range-sum-of-bst) |
+| [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
 ## Binary Tree
 |  |
 | ------- |
@@ -73,6 +77,7 @@
 | [0199-binary-tree-right-side-view](https://github.com/LeeSY99/algo-studyy/tree/master/0199-binary-tree-right-side-view) |
 | [0437-path-sum-iii](https://github.com/LeeSY99/algo-studyy/tree/master/0437-path-sum-iii) |
 | [0938-range-sum-of-bst](https://github.com/LeeSY99/algo-studyy/tree/master/0938-range-sum-of-bst) |
+| [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
 ## Matrix
 |  |
 | ------- |
@@ -113,6 +118,7 @@
 | ------- |
 | [0199-binary-tree-right-side-view](https://github.com/LeeSY99/algo-studyy/tree/master/0199-binary-tree-right-side-view) |
 | [0827-making-a-large-island](https://github.com/LeeSY99/algo-studyy/tree/master/0827-making-a-large-island) |
+| [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
 ## Union Find
 |  |
 | ------- |

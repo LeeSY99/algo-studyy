@@ -13,6 +13,7 @@
 | [0403-frog-jump](https://github.com/LeeSY99/algo-studyy/tree/master/0403-frog-jump) |
 | [0498-diagonal-traverse](https://github.com/LeeSY99/algo-studyy/tree/master/0498-diagonal-traverse) |
 | [0827-making-a-large-island](https://github.com/LeeSY99/algo-studyy/tree/master/0827-making-a-large-island) |
+| [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 | [1972-rotating-the-box](https://github.com/LeeSY99/algo-studyy/tree/master/1972-rotating-the-box) |
@@ -35,6 +36,7 @@
 | [0128-longest-consecutive-sequence](https://github.com/LeeSY99/algo-studyy/tree/master/0128-longest-consecutive-sequence) |
 | [0208-implement-trie-prefix-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0208-implement-trie-prefix-tree) |
 | [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
+| [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Counting
@@ -85,6 +87,7 @@
 | [0208-implement-trie-prefix-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0208-implement-trie-prefix-tree) |
 | [0394-decode-string](https://github.com/LeeSY99/algo-studyy/tree/master/0394-decode-string) |
 | [0443-string-compression](https://github.com/LeeSY99/algo-studyy/tree/master/0443-string-compression) |
+| [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 ## Two Pointers
 |  |

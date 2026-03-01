@@ -93,6 +93,7 @@
 | [0394-decode-string](https://github.com/LeeSY99/algo-studyy/tree/master/0394-decode-string) |
 | [0443-string-compression](https://github.com/LeeSY99/algo-studyy/tree/master/0443-string-compression) |
 | [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |
+| [1249-minimum-remove-to-make-valid-parentheses](https://github.com/LeeSY99/algo-studyy/tree/master/1249-minimum-remove-to-make-valid-parentheses) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 ## Two Pointers
 |  |
@@ -151,6 +152,7 @@
 | ------- |
 | [0341-flatten-nested-list-iterator](https://github.com/LeeSY99/algo-studyy/tree/master/0341-flatten-nested-list-iterator) |
 | [0394-decode-string](https://github.com/LeeSY99/algo-studyy/tree/master/0394-decode-string) |
+| [1249-minimum-remove-to-make-valid-parentheses](https://github.com/LeeSY99/algo-studyy/tree/master/1249-minimum-remove-to-make-valid-parentheses) |
 ## Recursion
 |  |
 | ------- |

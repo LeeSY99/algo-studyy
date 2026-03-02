@@ -9,7 +9,7 @@ public class Main {
         }
 
         int[] selected = new int[3];
-        int ans = 0;
+        int ans = -1;
         for (int i = 0; i<n; i++){
             selected[0] = arr[i];
             for (int j = i+1; j<n; j++){
@@ -21,7 +21,7 @@ public class Main {
                     int c = selected[2];
                     boolean carry = false;
 
-                    while (a != 0 && b!=0 && c!=0){
+                    while (a != 0 || b!=0 || c!=0){
                         if (a%10 + b%10 + c%10 >= 10) {
                             carry = true;
                             break;
@@ -37,12 +37,12 @@ public class Main {
                 }
             }
         }
-
-        if (ans == 0){
-            System.out.println(-1);
-        } else{
-            System.out.println(ans);
-        }
+        System.out.println(ans);
+        // if (ans == 0){
+        //     System.out.println(-1);
+        // } else{
+        //     System.out.println(ans);
+        // }
     
         // Please write your code here.
     }

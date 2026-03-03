@@ -22,32 +22,40 @@ public class Main {
             record_t[i] = t;
         }
 
+        int[] sick_p = new int[S];
+        int[] sick_t = new int[S];
         for (int i=0; i<S; i++) {
-            int p = sc.nextInt();
-            int t = sc.nextInt();
-            sick[p] = true;
-
-            for (int j=0; j<D; j++){
-                int time = record_t[j];
-                int cheese_num = record_m[j];
-                int person_num = record_p[j];
-                if (time < t && p == person_num){
-                    rotten[cheese_num] = true;
-                }
-            }
-        }
-        for (int i=0; i<D; i++) {
-            int cheese_num = record_m[i];
-            int person_num = record_p[i];
-            if (rotten[cheese_num] == true) {
-                sick[person_num] = true;
-            }
+            sick_p[i] = sc.nextInt();
+            sick_t[i] = sc.nextInt();
+            
         }
         int answer = 0;
-        for (int i=0; i<N+1; i++) {
-            if (sick[i] == true){
-                answer++;
+        for (int cheese=1; cheese<M+1; cheese++){
+            boolean possible = true;
+
+            for (int i=0; i<S && possible; i++){
+                int p = sick_p[i];
+                int t = sick_t[i];
+
+                boolean eat = false;
+                for (int j=0; j<D; j++){
+                    if (record_p[j] == p && record_m[j] == cheese && record_t[j] < t){
+                        eat = true;
+                        break;
+                    }
+                }
+                if (!eat) possible = false;
             }
+            if (!possible) continue;
+            boolean[] ate = new boolean[N+1];
+            int cnt = 0;
+            for (int j = 0; j<D; j++){
+                if (record_m[j] == cheese && !ate[record_p[j]]){
+                    ate[record_p[j]] = true;
+                    cnt++;
+                }
+            }
+            answer = Math.max(answer, cnt);
         }
         System.out.println(answer);
     }

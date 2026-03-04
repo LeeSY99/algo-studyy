@@ -39,11 +39,13 @@
 | [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
 | [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |
 | [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
+| [1347-minimum-number-of-steps-to-make-two-strings-anagram](https://github.com/LeeSY99/algo-studyy/tree/master/1347-minimum-number-of-steps-to-make-two-strings-anagram) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Counting
 |  |
 | ------- |
+| [1347-minimum-number-of-steps-to-make-two-strings-anagram](https://github.com/LeeSY99/algo-studyy/tree/master/1347-minimum-number-of-steps-to-make-two-strings-anagram) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Sorting
 |  |
@@ -96,6 +98,7 @@
 | [0443-string-compression](https://github.com/LeeSY99/algo-studyy/tree/master/0443-string-compression) |
 | [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |
 | [1249-minimum-remove-to-make-valid-parentheses](https://github.com/LeeSY99/algo-studyy/tree/master/1249-minimum-remove-to-make-valid-parentheses) |
+| [1347-minimum-number-of-steps-to-make-two-strings-anagram](https://github.com/LeeSY99/algo-studyy/tree/master/1347-minimum-number-of-steps-to-make-two-strings-anagram) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 ## Two Pointers
 |  |

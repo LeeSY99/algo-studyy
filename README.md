@@ -36,6 +36,7 @@
 | ------- |
 | [0128-longest-consecutive-sequence](https://github.com/LeeSY99/algo-studyy/tree/master/0128-longest-consecutive-sequence) |
 | [0208-implement-trie-prefix-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0208-implement-trie-prefix-tree) |
+| [0299-bulls-and-cows](https://github.com/LeeSY99/algo-studyy/tree/master/0299-bulls-and-cows) |
 | [0391-perfect-rectangle](https://github.com/LeeSY99/algo-studyy/tree/master/0391-perfect-rectangle) |
 | [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |
 | [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
@@ -45,6 +46,7 @@
 ## Counting
 |  |
 | ------- |
+| [0299-bulls-and-cows](https://github.com/LeeSY99/algo-studyy/tree/master/0299-bulls-and-cows) |
 | [1347-minimum-number-of-steps-to-make-two-strings-anagram](https://github.com/LeeSY99/algo-studyy/tree/master/1347-minimum-number-of-steps-to-make-two-strings-anagram) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Sorting
@@ -94,6 +96,7 @@
 |  |
 | ------- |
 | [0208-implement-trie-prefix-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0208-implement-trie-prefix-tree) |
+| [0299-bulls-and-cows](https://github.com/LeeSY99/algo-studyy/tree/master/0299-bulls-and-cows) |
 | [0394-decode-string](https://github.com/LeeSY99/algo-studyy/tree/master/0394-decode-string) |
 | [0443-string-compression](https://github.com/LeeSY99/algo-studyy/tree/master/0443-string-compression) |
 | [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |

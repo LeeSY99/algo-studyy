@@ -16,6 +16,7 @@
 | [0953-verifying-an-alien-dictionary](https://github.com/LeeSY99/algo-studyy/tree/master/0953-verifying-an-alien-dictionary) |
 | [1306-jump-game-iii](https://github.com/LeeSY99/algo-studyy/tree/master/1306-jump-game-iii) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
+| [1774-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1774-closest-dessert-cost) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 | [1972-rotating-the-box](https://github.com/LeeSY99/algo-studyy/tree/master/1972-rotating-the-box) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
@@ -25,11 +26,13 @@
 | ------- |
 | [0064-minimum-path-sum](https://github.com/LeeSY99/algo-studyy/tree/master/0064-minimum-path-sum) |
 | [0403-frog-jump](https://github.com/LeeSY99/algo-studyy/tree/master/0403-frog-jump) |
+| [1774-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1774-closest-dessert-cost) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 ## Backtracking
 |  |
 | ------- |
 | [0051-n-queens](https://github.com/LeeSY99/algo-studyy/tree/master/0051-n-queens) |
+| [1774-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1774-closest-dessert-cost) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 ## Hash Table
 |  |

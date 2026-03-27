@@ -19,6 +19,7 @@
 | [1774-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1774-closest-dessert-cost) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 | [1972-rotating-the-box](https://github.com/LeeSY99/algo-studyy/tree/master/1972-rotating-the-box) |
+| [3169-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3169-count-days-without-meetings) |
 | [3185-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3185-count-pairs-that-form-a-complete-day-ii) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 | [3430-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3430-count-days-without-meetings) |
@@ -61,6 +62,7 @@
 | [0295-find-median-from-data-stream](https://github.com/LeeSY99/algo-studyy/tree/master/0295-find-median-from-data-stream) |
 | [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
+| [3169-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3169-count-days-without-meetings) |
 | [3430-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3430-count-days-without-meetings) |
 ## Tree
 |  |

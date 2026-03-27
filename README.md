@@ -19,6 +19,7 @@
 | [1774-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1774-closest-dessert-cost) |
 | [1900-closest-dessert-cost](https://github.com/LeeSY99/algo-studyy/tree/master/1900-closest-dessert-cost) |
 | [1972-rotating-the-box](https://github.com/LeeSY99/algo-studyy/tree/master/1972-rotating-the-box) |
+| [3185-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3185-count-pairs-that-form-a-complete-day-ii) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 | [3430-count-days-without-meetings](https://github.com/LeeSY99/algo-studyy/tree/master/3430-count-days-without-meetings) |
 ## Dynamic Programming
@@ -45,12 +46,14 @@
 | [0987-vertical-order-traversal-of-a-binary-tree](https://github.com/LeeSY99/algo-studyy/tree/master/0987-vertical-order-traversal-of-a-binary-tree) |
 | [1347-minimum-number-of-steps-to-make-two-strings-anagram](https://github.com/LeeSY99/algo-studyy/tree/master/1347-minimum-number-of-steps-to-make-two-strings-anagram) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/LeeSY99/algo-studyy/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
+| [3185-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3185-count-pairs-that-form-a-complete-day-ii) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Counting
 |  |
 | ------- |
 | [0299-bulls-and-cows](https://github.com/LeeSY99/algo-studyy/tree/master/0299-bulls-and-cows) |
 | [1347-minimum-number-of-steps-to-make-two-strings-anagram](https://github.com/LeeSY99/algo-studyy/tree/master/1347-minimum-number-of-steps-to-make-two-strings-anagram) |
+| [3185-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3185-count-pairs-that-form-a-complete-day-ii) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/LeeSY99/algo-studyy/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Sorting
 |  |
